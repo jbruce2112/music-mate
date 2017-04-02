@@ -22,12 +22,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 			}
 			
 			vc.api = self.api
-			self.api.currentPlayback { string in
-				
-				if let str = string {
-					print(str)
-				}
-			}
 		}
 	}
 

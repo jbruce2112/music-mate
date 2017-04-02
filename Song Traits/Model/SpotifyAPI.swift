@@ -57,23 +57,13 @@ class SpotifyAPI {
 		task.resume()
 	}
 	
-	func currentPlayback(completion: @escaping (String?) -> Void) {
+	func currentPlaybackInfo(completion: @escaping (String?) -> Void) {
 		
-		guard
-			let token = authState?.token,
-			let tokenType = authState?.tokenType else {
-				
-				return completion(nil)
-		}
-		
-		var request = URLRequest(url: url(method: "v1/me/player/", params: nil))
-		request.addValue("\(tokenType) \(token)", forHTTPHeaderField: "Authorization")
-		
-		let task = session.dataTask(with: request) { (data, _, _) in
+		request(forMethod: "v1/me/player/") { responseData in
 			
 			DispatchQueue.main.async {
 				
-				guard let data = data else {
+				guard let data = responseData else {
 					return completion(nil)
 				}
 				
@@ -81,27 +71,16 @@ class SpotifyAPI {
 				completion(dataString)
 			}
 		}
-		task.resume()
 	}
 	
 	func features(forSong song: Song, completion: @escaping (Features?) -> Void) {
 		
-		guard
-			let token = authState?.token,
-			let tokenType = authState?.tokenType else {
-				
-				return completion(nil)
-		}
-		
-		var request = URLRequest(url: url(method: "v1/audio-features/\(song.id)", params: nil))
-		request.addValue("\(tokenType) \(token)", forHTTPHeaderField: "Authorization")
-		
-		let task = session.dataTask(with: request) { (data, _, _) in
+		request(forMethod: "v1/audio-features/\(song.id)") { responseData in
 			
 			DispatchQueue.main.async {
 				
 				guard
-					let data = data,
+					let data = responseData,
 					let jsonObject = try? JSONSerialization.jsonObject(with: data),
 					let jsonDictionary = jsonObject as? [String: Any] else {
 						
@@ -111,38 +90,21 @@ class SpotifyAPI {
 				completion(Features(fromJSON: jsonDictionary))
 			}
 		}
-		task.resume()
 	}
 	
 	func currentSong(completion: @escaping (Song?) -> Void) {
 		
-		guard
-			let token = authState?.token,
-			let tokenType = authState?.tokenType else {
-				
-			return completion(nil)
-		}
-		
-		var request = URLRequest(url: url(method: "v1/me/player/currently-playing", params: nil))
-		request.addValue("\(tokenType) \(token)", forHTTPHeaderField: "Authorization")
-		
-		let task = session.dataTask(with: request) { (data, _, _) in
+		request(forMethod: "v1/me/player/currently-playing") { responseData in
 			
 			DispatchQueue.main.async {
 				
-				guard let data = data else {
+				guard let data = responseData else {
 					return completion(nil)
 				}
 				
 				completion(self.song(from: data))
 			}
 		}
-		task.resume()
-	}
-	
-	func url(method: String, params: [String: String]?) -> URL {
-		
-		return SpotifyAPI.url(base: apiBaseURL, method: method, params: params)
 	}
 	
 	static func url(base: URL, method: String, params: [String: String]?) -> URL {
@@ -159,6 +121,31 @@ class SpotifyAPI {
 		
 		components.queryItems = queryItems
 		return components.url!
+	}
+	
+	// MARK: Private functions
+	private func request(forMethod method: String, completion: @escaping (Data?) -> Void) {
+		
+		guard
+			let token = authState?.token,
+			let tokenType = authState?.tokenType else {
+				
+				return completion(nil)
+		}
+		
+		var request = URLRequest(url: url(method: method, params: nil))
+		request.addValue("\(tokenType) \(token)", forHTTPHeaderField: "Authorization")
+		
+		let task = session.dataTask(with: request) { (data, _, _) in
+			
+			completion(data)
+		}
+		task.resume()
+	}
+	
+	private func url(method: String, params: [String: String]?) -> URL {
+		
+		return SpotifyAPI.url(base: apiBaseURL, method: method, params: params)
 	}
 	
 	private func song(from data: Data) -> Song? {
