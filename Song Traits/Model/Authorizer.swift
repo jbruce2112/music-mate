@@ -35,11 +35,12 @@ class Authorizer {
 	
 	func auth(forClient clientID: String, completion: @escaping (AuthResult) -> Void) {
 		
-		let params =
-			["client_id": clientID,
-			 "response_type": "token",
-			 "redirect_uri": "http://localhost:\(port)/\(callbackMethod)",
-				"state": stateToken]
+		let params = [
+			"client_id": clientID,
+			"response_type": "token",
+			"redirect_uri": "http://localhost:\(port)/\(callbackMethod)",
+			"state": stateToken,
+			"scope": "user-read-playback-state"]
 		
 		server["/\(callbackMethod)"] = { request in
 			
@@ -70,7 +71,7 @@ class Authorizer {
 	
 	private func authURL(method: String, params: [String: String]?) -> URL {
 		
-		return SpotifyAPI.url(accountsBaseURL, method: method, params: params)
+		return SpotifyAPI.url(base: accountsBaseURL, method: method, params: params)
 	}
 	
 	private func getRedirectHTML(_ request: HttpRequest) -> String? {

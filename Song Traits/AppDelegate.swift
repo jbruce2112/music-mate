@@ -15,13 +15,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 		
-		api.auth()
+		api.auth {
+			
+			guard let vc = NSApplication.shared().windows.first?.contentViewController as? MainViewController else {
+				return
+			}
+			
+			vc.api = self.api
+			self.api.currentPlayback { string in
+				
+				if let str = string {
+					print(str)
+				}
+			}
+		}
 	}
 
 	func applicationWillTerminate(_ aNotification: Notification) {
 		// Insert code here to tear down your application
 	}
-
-
 }
 
