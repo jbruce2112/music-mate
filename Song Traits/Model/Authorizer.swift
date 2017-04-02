@@ -77,7 +77,9 @@ class Authorizer {
 	private func getRedirectHTML(_ request: HttpRequest) -> String? {
 		
 		if request.queryParams.isEmpty {
-			return "<script> function passParams() { window.location = \"http://localhost:\(port)/\(callbackMethod)?\" + window.location.hash.substr(1); } window.onload = passParams</script>"
+			return "<script> function passParams() { " +
+				"window.location = \"http://localhost:\(port)/\(callbackMethod)?\"" +
+				" + window.location.hash.substr(1); } window.onload = passParams</script>"
 		} else {
 			return nil
 		}

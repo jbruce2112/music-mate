@@ -50,7 +50,7 @@ class SpotifyAPI {
 	func image(for url: URL, completion: @escaping (Data?) -> Void) {
 		
 		let request = URLRequest(url: url)
-		let task = session.dataTask(with: request) { (data, response, error) in
+		let task = session.dataTask(with: request) { (data, _, _) in
 			
 			completion(data)
 		}
@@ -69,7 +69,7 @@ class SpotifyAPI {
 		var request = URLRequest(url: url(method: "v1/me/player/", params: nil))
 		request.addValue("\(tokenType) \(token)", forHTTPHeaderField: "Authorization")
 		
-		let task = session.dataTask(with: request) { (data, response, error) in
+		let task = session.dataTask(with: request) { (data, _, _) in
 			
 			DispatchQueue.main.async {
 				
@@ -96,7 +96,7 @@ class SpotifyAPI {
 		var request = URLRequest(url: url(method: "v1/audio-features/\(song.id)", params: nil))
 		request.addValue("\(tokenType) \(token)", forHTTPHeaderField: "Authorization")
 		
-		let task = session.dataTask(with: request) { (data, response, error) in
+		let task = session.dataTask(with: request) { (data, _, _) in
 			
 			DispatchQueue.main.async {
 				
@@ -126,7 +126,7 @@ class SpotifyAPI {
 		var request = URLRequest(url: url(method: "v1/me/player/currently-playing", params: nil))
 		request.addValue("\(tokenType) \(token)", forHTTPHeaderField: "Authorization")
 		
-		let task = session.dataTask(with: request) { (data, response, error) in
+		let task = session.dataTask(with: request) { (data, _, _) in
 			
 			DispatchQueue.main.async {
 				

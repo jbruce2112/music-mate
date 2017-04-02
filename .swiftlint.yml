@@ -5,6 +5,7 @@ disabled_rules:
         - force_try
         - vertical_whitespace
         - nesting
+        - number_separator
 opt_in_rules:
         - empty_count
         - explicit_init
@@ -19,6 +20,8 @@ opt_in_rules:
         - object_literal
         - number_separator
         - prohibited_super_call
+excluded:
+        - Pods
 line_length: 150
 type_body_length: 400
 file_length: 750

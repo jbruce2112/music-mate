@@ -96,4 +96,3 @@ class MainViewController: NSViewController {
 	}
 
 }
-

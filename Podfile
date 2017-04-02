@@ -2,9 +2,12 @@
 # platform :ios, '9.0'
 
 target 'Song Traits' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
-  use_frameworks!
+	# Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+	use_frameworks!
 
-  # Pods for Song Traits
-  pod 'Swifter', '~> 1.3.3'
+	# ignore all warnings from all pods
+	inhibit_all_warnings!
+
+	# Pods for Song Traits
+	pod 'Swifter', '~> 1.3.3'
 end
