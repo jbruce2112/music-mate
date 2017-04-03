@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Swifter
 
 class SpotifyAPI {
 	
@@ -98,11 +97,16 @@ class SpotifyAPI {
 			
 			DispatchQueue.main.async {
 				
-				guard let data = responseData else {
-					return completion(nil)
+				guard
+					let data = responseData,
+					let jsonObject = try? JSONSerialization.jsonObject(with: data),
+					let jsonDictionary = jsonObject as? [AnyHashable: Any],
+					let itemJSON = jsonDictionary["item"] as? [String: Any] else {
+						
+						return completion(nil)
 				}
 				
-				completion(self.song(from: data))
+				completion(Song(fromJSON: itemJSON))
 			}
 		}
 	}
@@ -146,21 +150,5 @@ class SpotifyAPI {
 	private func url(method: String, params: [String: String]?) -> URL {
 		
 		return SpotifyAPI.url(base: apiBaseURL, method: method, params: params)
-	}
-	
-	private func song(from data: Data) -> Song? {
-		
-		let jsonObject = try? JSONSerialization.jsonObject(with: data)
-		
-		guard
-			let jsonDictionary = jsonObject as? [AnyHashable: Any],
-			let item = jsonDictionary["item"] as? [String: Any],
-			let song = Song(fromJSON: item) else {
-				
-				// The JSON structure did not match our expectiations
-				return nil
-		}
-		
-		return song
 	}
 }

@@ -69,7 +69,7 @@ class Features {
 			"loudness: \(loudness) dB\n" +
 			"mode: \(mode)\n" +
 			"speechiness: \(formatPercent(speechiness))\n" +
-			"tempo: \(tempo) BPM\n" +
+			"tempo: \(Int(tempo)) BPM\n" +
 			"timeSignature: \(timeSignature)\n" +
 			"valence: \(formatPercent(valence))\n"
 	}

@@ -18,21 +18,10 @@ class MainViewController: NSViewController {
 	
 	private var currentSong: Song?
 	
-	@IBOutlet var nameLabel: NSTextField!
-	@IBOutlet var artistLabel: NSTextField!
-	@IBOutlet var albumLabel: NSTextField!
-	@IBOutlet var albumView: NSImageView!
-	
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		
-	}
-
-	override var representedObject: Any? {
-		didSet {
-		// Update the view, if already loaded.
-		}
-	}
+	@IBOutlet private var nameLabel: NSTextField!
+	@IBOutlet private var artistLabel: NSTextField!
+	@IBOutlet private var albumLabel: NSTextField!
+	@IBOutlet private var albumView: NSImageView!
 
 	@IBAction func refresh(_ sender: AnyObject) {
 		
