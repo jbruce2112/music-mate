@@ -11,21 +11,39 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
+	private var mainViewController: MainViewController!
 	private let api = SpotifyAPI()
+	private let statusItem: NSStatusItem = {
+		
+		let item = NSStatusBar.system().statusItem(withLength: NSSquareStatusItemLength)
+		item.image = #imageLiteral(resourceName: "MenuIcon")
+		item.image?.isTemplate = true
+		
+		let menu = NSMenu()
+		let infoItem = NSMenuItem()
+		infoItem.title = "Current Song Info"
+		infoItem.target = self as AnyObject
+		infoItem.action = #selector(showWindow)
+		menu.addItem(infoItem)
+		
+		item.menu = menu
+		
+		return item
+	}()
 
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 		
+		mainViewController = NSApplication.shared().windows[1].contentViewController as! MainViewController
+		
 		api.auth {
 			
-			guard let vc = NSApplication.shared().windows.first?.contentViewController as? MainViewController else {
-				return
-			}
-			
-			vc.api = self.api
+			self.mainViewController.api = self.api
 		}
 	}
-
-	func applicationWillTerminate(_ aNotification: Notification) {
-		// Insert code here to tear down your application
+	
+	func showWindow() {
+		
+		NSApp.activate(ignoringOtherApps: true)
+		mainViewController.refreshCurrentSong()
 	}
 }

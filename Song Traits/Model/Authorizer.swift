@@ -40,7 +40,7 @@ class Authorizer {
 			"response_type": "token",
 			"redirect_uri": "http://localhost:\(port)/\(callbackMethod)",
 			"state": stateToken,
-			"scope": "user-read-playback-state"]
+			"scope": "user-read-currently-playing"]
 		
 		server["/\(callbackMethod)"] = { request in
 			

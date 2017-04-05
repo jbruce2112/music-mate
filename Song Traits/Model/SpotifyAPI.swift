@@ -56,6 +56,36 @@ class SpotifyAPI {
 		task.resume()
 	}
 	
+	func activeDeviceID(completion: @escaping (String?) -> Void) {
+		
+		request(forMethod: "v1/me/player/devices") { responseData in
+			
+			DispatchQueue.main.async {
+				
+				
+				guard
+					let data = responseData,
+					let jsonObject = try? JSONSerialization.jsonObject(with: data),
+					let jsonDictionary = jsonObject as? [String: Any],
+					let devices = jsonDictionary["devices"] as? [Any] else {
+						
+						return completion(nil)
+				}
+				
+				for device in devices {
+					
+					guard let device = device as? [String: Any] else {
+						continue
+					}
+					
+					return completion(device["id"] as? String)
+				}
+				
+				completion(nil)
+			}
+		}
+	}
+	
 	func currentPlaybackInfo(completion: @escaping (String?) -> Void) {
 		
 		request(forMethod: "v1/me/player/") { responseData in
@@ -68,6 +98,17 @@ class SpotifyAPI {
 				
 				let dataString = String(data: data, encoding: String.Encoding.utf8)
 				completion(dataString)
+			}
+		}
+	}
+	
+	func startPlayback(onDevice id: String, completion: @escaping () -> Void) {
+		
+		request(forMethod: "v1/me/player/play", params: ["device_id": id]) { _ in
+			
+			DispatchQueue.main.async {
+				
+				completion()
 			}
 		}
 	}
@@ -128,7 +169,7 @@ class SpotifyAPI {
 	}
 	
 	// MARK: Private functions
-	private func request(forMethod method: String, completion: @escaping (Data?) -> Void) {
+	private func request(forMethod method: String, params: [String: String]? = nil, completion: @escaping (Data?) -> Void) {
 		
 		guard
 			let token = authState?.token,
@@ -137,7 +178,7 @@ class SpotifyAPI {
 				return completion(nil)
 		}
 		
-		var request = URLRequest(url: url(method: method, params: nil))
+		var request = URLRequest(url: url(method: method, params: params))
 		request.addValue("\(tokenType) \(token)", forHTTPHeaderField: "Authorization")
 		
 		let task = session.dataTask(with: request) { (data, _, _) in

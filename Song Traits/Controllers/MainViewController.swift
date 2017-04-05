@@ -37,7 +37,7 @@ class MainViewController: NSViewController {
 		showTraits(for: currentSong)
 	}
 	
-	private func refreshCurrentSong() {
+	func refreshCurrentSong() {
 		
 		api?.currentSong { song in
 			
@@ -59,7 +59,7 @@ class MainViewController: NSViewController {
 				guard
 					let imageData = image,
 					let image = NSImage(data: imageData) else {
-					return
+						return
 				}
 				
 				self.albumView.image = image
