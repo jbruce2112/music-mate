@@ -178,7 +178,7 @@ class SpotifyAPI {
 				return completion(nil)
 		}
 		
-		var request = URLRequest(url: url(method: method, params: params))
+		var request = URLRequest(url: SpotifyAPI.url(base: apiBaseURL, method: method, params: params))
 		request.addValue("\(tokenType) \(token)", forHTTPHeaderField: "Authorization")
 		
 		let task = session.dataTask(with: request) { (data, _, _) in
@@ -186,10 +186,5 @@ class SpotifyAPI {
 			completion(data)
 		}
 		task.resume()
-	}
-	
-	private func url(method: String, params: [String: String]?) -> URL {
-		
-		return SpotifyAPI.url(base: apiBaseURL, method: method, params: params)
 	}
 }

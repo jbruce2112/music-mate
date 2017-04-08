@@ -8,16 +8,38 @@
 
 import Foundation
 
+enum Mode: Int {
+	case Minor
+	case Major
+	case Unknown
+}
+
+enum Key: Int {
+	case C
+	case CSharp
+	case D
+	case DSharp
+	case E
+	case F
+	case FSharp
+	case G
+	case GSharp
+	case A
+	case ASharp
+	case B
+	case Unknown
+}
+
 class Features {
 	
 	let acousticness: Float
 	let danceability: Float
 	let energy: Float
 	let instrumentalness: Float
-	let key: Int
+	let key: Key
 	let liveness: Float
 	let loudness: Float
-	let mode: Int
+	let mode: Mode
 	let speechiness: Float
 	let tempo: Float
 	let timeSignature: Int
@@ -47,10 +69,10 @@ class Features {
 		self.danceability = danceability
 		self.energy = energy
 		self.instrumentalness = instrumentalness
-		self.key = key
+		self.key = Key(rawValue: key) ?? .Unknown
 		self.liveness = liveness
 		self.loudness = loudness
-		self.mode = mode
+		self.mode = Mode(rawValue: mode) ?? .Unknown
 		self.speechiness = speechiness
 		self.tempo = tempo
 		self.timeSignature = timeSignature
