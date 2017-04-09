@@ -11,8 +11,6 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-	private var mainViewController: MainViewController!
-	private let api = SpotifyAPI()
 	private let statusItem: NSStatusItem = {
 		
 		let item = NSStatusBar.system().statusItem(withLength: NSSquareStatusItemLength)
@@ -30,20 +28,28 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		
 		return item
 	}()
+	
+	private let api = SpotifyAPI()
+	private var infoViewController: InfoViewController!
+	private var traitsViewController: TraitsViewController!
 
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 		
-		mainViewController = NSApplication.shared().windows[1].contentViewController as! MainViewController
+		let tabViewController = NSApplication.shared().windows[1].contentViewController as! NSTabViewController
+		traitsViewController = tabViewController.tabViewItems[0].viewController as! TraitsViewController
+		infoViewController = tabViewController.tabViewItems[1].viewController as! InfoViewController
 		
 		api.auth {
 			
-			self.mainViewController.api = self.api
+			self.traitsViewController.api = self.api
+			self.infoViewController.api = self.api
 		}
 	}
 	
 	func showWindow() {
 		
 		NSApp.activate(ignoringOtherApps: true)
-		mainViewController.refreshCurrentSong()
+		traitsViewController.refreshCurrentSong()
+		infoViewController.refreshCurrentSong()
 	}
 }

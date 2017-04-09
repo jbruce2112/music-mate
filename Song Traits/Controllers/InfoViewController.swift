@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  InfoViewController.swift
 //  Song Traits
 //
 //  Created by John on 4/2/17.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class MainViewController: NSViewController {
+class InfoViewController: NSViewController {
 
 	var api: SpotifyAPI? {
 		didSet {
@@ -26,15 +26,6 @@ class MainViewController: NSViewController {
 	@IBAction func refresh(_ sender: AnyObject) {
 		
 		refreshCurrentSong()
-	}
-	
-	@IBAction func showFeatures(_ sender: AnyObject) {
-		
-		guard let currentSong = currentSong else {
-			return
-		}
-		
-		showTraits(for: currentSong)
 	}
 	
 	func refreshCurrentSong() {
@@ -64,23 +55,6 @@ class MainViewController: NSViewController {
 				
 				self.albumView.image = image
 			}
-		}
-	}
-	
-	private func showTraits(for song: Song) {
-		
-		api?.features(forSong: song) { features in
-			
-			guard let features = features else {
-				return
-			}
-			
-			let alert = NSAlert()
-			alert.messageText = "Song traits for \(song.name)"
-			alert.informativeText = features.formattedString()
-			alert.alertStyle = .informational
-			alert.addButton(withTitle: "Close")
-			alert.runModal()
 		}
 	}
 

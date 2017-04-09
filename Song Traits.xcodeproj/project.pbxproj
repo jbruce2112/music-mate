@@ -13,8 +13,9 @@
 		52000CB91E919D5C00AB4A6C /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52000CB81E919D5C00AB4A6C /* Artist.swift */; };
 		52000CBB1E919DA600AB4A6C /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52000CBA1E919DA600AB4A6C /* Album.swift */; };
 		52000CBF1E91ADBF00AB4A6C /* Features.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52000CBE1E91ADBF00AB4A6C /* Features.swift */; };
+		5202C9281E9ABAED0015475B /* TraitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5202C9271E9ABAED0015475B /* TraitsViewController.swift */; };
 		52184FEA1E913D9D00DFEB49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52184FE91E913D9D00DFEB49 /* AppDelegate.swift */; };
-		52184FEC1E913D9D00DFEB49 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52184FEB1E913D9D00DFEB49 /* MainViewController.swift */; };
+		52184FEC1E913D9D00DFEB49 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52184FEB1E913D9D00DFEB49 /* InfoViewController.swift */; };
 		52184FEE1E913D9D00DFEB49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52184FED1E913D9D00DFEB49 /* Assets.xcassets */; };
 		52184FF11E913D9D00DFEB49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52184FEF1E913D9D00DFEB49 /* Main.storyboard */; };
 		52184FF91E913FF000DFEB49 /* SpotifyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52184FF81E913FF000DFEB49 /* SpotifyAPI.swift */; };
@@ -33,9 +34,10 @@
 		52000CB81E919D5C00AB4A6C /* Artist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		52000CBA1E919DA600AB4A6C /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		52000CBE1E91ADBF00AB4A6C /* Features.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Features.swift; sourceTree = "<group>"; };
+		5202C9271E9ABAED0015475B /* TraitsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TraitsViewController.swift; path = Controllers/TraitsViewController.swift; sourceTree = "<group>"; };
 		52184FE61E913D9D00DFEB49 /* Song Traits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Song Traits.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52184FE91E913D9D00DFEB49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		52184FEB1E913D9D00DFEB49 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Controllers/MainViewController.swift; sourceTree = "<group>"; };
+		52184FEB1E913D9D00DFEB49 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InfoViewController.swift; path = Controllers/InfoViewController.swift; sourceTree = "<group>"; };
 		52184FED1E913D9D00DFEB49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52184FF01E913D9D00DFEB49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		52184FF21E913D9D00DFEB49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -109,7 +111,8 @@
 		527CB0E41E91BCFA0030C314 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				52184FEB1E913D9D00DFEB49 /* MainViewController.swift */,
+				52184FEB1E913D9D00DFEB49 /* InfoViewController.swift */,
+				5202C9271E9ABAED0015475B /* TraitsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -278,9 +281,10 @@
 				52000CBF1E91ADBF00AB4A6C /* Features.swift in Sources */,
 				52000CB71E918AF400AB4A6C /* Song.swift in Sources */,
 				52000CB31E916A5F00AB4A6C /* Authorizer.swift in Sources */,
+				5202C9281E9ABAED0015475B /* TraitsViewController.swift in Sources */,
 				52184FF91E913FF000DFEB49 /* SpotifyAPI.swift in Sources */,
 				52000CB51E916B0800AB4A6C /* AuthState.swift in Sources */,
-				52184FEC1E913D9D00DFEB49 /* MainViewController.swift in Sources */,
+				52184FEC1E913D9D00DFEB49 /* InfoViewController.swift in Sources */,
 				52184FEA1E913D9D00DFEB49 /* AppDelegate.swift in Sources */,
 				52000CB91E919D5C00AB4A6C /* Artist.swift in Sources */,
 				52000CBB1E919DA600AB4A6C /* Album.swift in Sources */,
