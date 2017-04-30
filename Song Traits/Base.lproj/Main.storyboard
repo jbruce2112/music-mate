@@ -699,10 +699,10 @@
                                 </connections>
                             </button>
                             <stackView distribution="fillEqually" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9cx-IR-4N0" userLabel="Container Stack View">
-                                <rect key="frame" x="20" y="61" width="625" height="270"/>
+                                <rect key="frame" x="20" y="61" width="625" height="300"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="251" verticalStackHuggingPriority="249.99998474121094" horizontalHuggingPriority="251" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="74Y-ab-Z6z" userLabel="Metadata Stack View">
-                                        <rect key="frame" x="0.0" y="101.5" width="367" height="67"/>
+                                        <rect key="frame" x="0.0" y="116.5" width="337" height="67"/>
                                         <subviews>
                                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aik-cf-NEz" userLabel="Name Stack View">
                                                 <rect key="frame" x="0.0" y="50" width="250" height="17"/>
@@ -820,7 +820,7 @@
                                         </customSpacing>
                                     </stackView>
                                     <imageView verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="NbZ-jm-AV2">
-                                        <rect key="frame" x="375" y="10" width="250" height="250"/>
+                                        <rect key="frame" x="345" y="10" width="280" height="280"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="NbZ-jm-AV2" secondAttribute="height" multiplier="1:1" id="tRn-Ra-JyQ"/>
                                         </constraints>
@@ -842,7 +842,7 @@
                             </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="9cx-IR-4N0" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="50" id="656-2H-fbv"/>
+                            <constraint firstItem="9cx-IR-4N0" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="656-2H-fbv"/>
                             <constraint firstAttribute="trailing" secondItem="9cx-IR-4N0" secondAttribute="trailing" constant="20" id="Ij1-7h-pPo"/>
                             <constraint firstAttribute="bottom" secondItem="ND6-oR-cg6" secondAttribute="bottom" constant="20" id="Y06-sI-jLr"/>
                             <constraint firstItem="9cx-IR-4N0" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="gfz-H2-euG"/>
