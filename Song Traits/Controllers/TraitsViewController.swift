@@ -16,9 +16,16 @@ class TraitsViewController: NSViewController {
 		}
 	}
 	
-	
-	@IBOutlet var traitsLabel: NSTextField!
+	@IBOutlet var traitsTableView: NSTableView!
 	private var currentSong: Song?
+	fileprivate var traits: [(String, String)]?
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		traitsTableView.delegate = self
+		traitsTableView.dataSource = self
+	}
 	
 	@IBAction func refresh(_ sender: AnyObject) {
 		
@@ -46,7 +53,44 @@ class TraitsViewController: NSViewController {
 				return
 			}
 			
-			self.traitsLabel.stringValue = features.formattedString()
+			self.traits = features.formattedValues()
+			self.traitsTableView.reloadData()
 		}
+	}
+}
+
+extension TraitsViewController: NSTableViewDataSource {
+	
+	func numberOfRows(in tableView: NSTableView) -> Int {
+		
+		print("table size is \(traits?.count ?? 0)")
+		return traits?.count ?? 0
+	}
+}
+
+extension TraitsViewController: NSTableViewDelegate {
+	
+	func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+		
+		guard let traits = traits else {
+			return nil
+		}
+		
+		var id: String
+		var text: String
+		if tableColumn == tableView.tableColumns[0] {
+			id = "KeyID"
+			text = traits[row].0
+		} else {
+			id = "ValueID"
+			text = traits[row].1
+		}
+		
+		if let cell = tableView.make(withIdentifier: id, owner: nil) as? NSTableCellView {
+			cell.textField?.stringValue = text
+			return cell
+		}
+		
+		return nil
 	}
 }

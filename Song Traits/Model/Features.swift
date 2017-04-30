@@ -79,21 +79,23 @@ class Features {
 		self.valence = valence
 	}
 	
-	func formattedString() -> String {
+	func formattedValues() -> [(String, String)] {
 		
-		return
-			"acousticness: \(formatPercent(acousticness))\n" +
-			"danceability: \(formatPercent(danceability))\n" +
-			"energy: \(formatPercent(energy))\n" +
-			"intrumentalness: \(formatPercent(instrumentalness))\n" +
-			"key: \(key)\n" +
-			"liveness: \(formatPercent(liveness))\n" +
-			"loudness: \(loudness) dB\n" +
-			"mode: \(mode)\n" +
-			"speechiness: \(formatPercent(speechiness))\n" +
-			"tempo: \(Int(tempo)) BPM\n" +
-			"timeSignature: \(timeSignature)\n" +
-			"valence: \(formatPercent(valence))\n"
+		var values = [(String, String)]()
+		values.append(("acousticness", formatPercent(acousticness)))
+		values.append(("danceability", formatPercent(danceability)))
+		values.append(("energy", formatPercent(energy)))
+		values.append(("intrumentalness", formatPercent(instrumentalness)))
+		values.append(("key", String(describing: key)))
+		values.append(("liveness", formatPercent(liveness)))
+		values.append(("loudness", "\(loudness) dB"))
+		values.append(("mode", String(describing: mode)))
+		values.append(("speechiness", formatPercent(speechiness)))
+		values.append(("tempo", "\(Int(tempo)) BPM"))
+		values.append(("timeSignature", String(describing: timeSignature)))
+		values.append(("valence", formatPercent(valence)))
+		
+		return values
 	}
 	
 	private func formatPercent(_ value: Float) -> String {
