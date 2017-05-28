@@ -17,6 +17,7 @@ class InfoViewController: NSViewController {
 	}
 	
 	private var currentSong: Song?
+	private let progressIndicator = NSProgressIndicator()
 	
 	@IBOutlet private var nameLabel: NSTextField!
 	@IBOutlet private var artistLabel: NSTextField!
@@ -26,6 +27,20 @@ class InfoViewController: NSViewController {
 	@IBAction func refresh(_ sender: AnyObject) {
 		
 		refreshCurrentSong()
+	}
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		progressIndicator.isDisplayedWhenStopped = false
+		progressIndicator.style = .spinningStyle
+		albumView.addSubview(progressIndicator)
+	}
+	
+	override func viewWillAppear() {
+		super.viewWillAppear()
+		
+		progressIndicator.frame = albumView.bounds
 	}
 	
 	func refreshCurrentSong() {
@@ -45,15 +60,30 @@ class InfoViewController: NSViewController {
 				self.artistLabel.stringValue = artist.name
 			}
 			
+			// Replace image with an empty clear image of
+			// the same size to avoid resizing while loading the new one
+			if let image = self.albumView.image {
+				let clearImage = NSImage(size: image.size)
+				clearImage.backgroundColor = .clear
+				self.albumView.image = clearImage
+			}
+			
+			self.progressIndicator.startAnimation(self)
+			
 			self.api?.image(for: song.album.imageURL) { image in
-				
-				guard
-					let imageData = image,
-					let image = NSImage(data: imageData) else {
-						return
+				sleep(3)
+				DispatchQueue.main.async {
+					
+					self.progressIndicator.stopAnimation(self)
+					
+					guard
+						let imageData = image,
+						let image = NSImage(data: imageData) else {
+							return
+					}
+					
+					self.albumView.image = image
 				}
-				
-				self.albumView.image = image
 			}
 		}
 	}
