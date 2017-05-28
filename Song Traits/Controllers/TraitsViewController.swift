@@ -63,7 +63,6 @@ extension TraitsViewController: NSTableViewDataSource {
 	
 	func numberOfRows(in tableView: NSTableView) -> Int {
 		
-		print("table size is \(traits?.count ?? 0)")
 		return traits?.count ?? 0
 	}
 }
