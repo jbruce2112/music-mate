@@ -30,12 +30,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	}()
 	
 	private let api = SpotifyAPI()
+	private var window: NSWindow!
 	private var infoViewController: InfoViewController!
 	private var traitsViewController: TraitsViewController!
 
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 		
-		let tabViewController = NSApplication.shared().windows[1].contentViewController as! NSTabViewController
+		window = NSApplication.shared().windows[1]
+		
+		let tabViewController = window.contentViewController as! NSTabViewController
 		traitsViewController = tabViewController.tabViewItems[0].viewController as! TraitsViewController
 		infoViewController = tabViewController.tabViewItems[1].viewController as! InfoViewController
 		
@@ -44,12 +47,25 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 			self.traitsViewController.api = self.api
 			self.infoViewController.api = self.api
 		}
+		
+		window.isReleasedWhenClosed = false
+		
+		// Initially hide main window
+		hideWindow()
 	}
 	
-	func showWindow() {
+	@objc
+	private func showWindow() {
 		
+		window.makeKeyAndOrderFront(self)
 		NSApp.activate(ignoringOtherApps: true)
+		
 		traitsViewController.refreshCurrentSong()
 		infoViewController.refreshCurrentSong()
+	}
+	
+	private func hideWindow() {
+		
+		window.orderOut(self)
 	}
 }

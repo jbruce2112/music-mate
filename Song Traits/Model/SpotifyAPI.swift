@@ -37,7 +37,7 @@ class SpotifyAPI {
 			switch result {
 			case let .success(state):
 				self.authState = state
-				print("Successfully logged in success")
+				print("Successfully logged in")
 				completion()
 			case let .failure(error):
 				print("Error logging in \(error)")
