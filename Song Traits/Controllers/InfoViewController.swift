@@ -10,23 +10,22 @@ import Cocoa
 
 class InfoViewController: NSViewController {
 
-	var api: SpotifyAPI? {
-		didSet {
-			refreshCurrentSong()
-		}
-	}
+	var api: SpotifyAPI?
 	
-	private var currentSong: Song?
-	private let progressIndicator = NSProgressIndicator()
+	fileprivate let progressIndicator = NSProgressIndicator()
 	
-	@IBOutlet private var nameLabel: NSTextField!
-	@IBOutlet private var artistLabel: NSTextField!
-	@IBOutlet private var albumLabel: NSTextField!
-	@IBOutlet private var albumView: NSImageView!
+	@IBOutlet fileprivate var nameLabel: NSTextField!
+	@IBOutlet fileprivate var artistLabel: NSTextField!
+	@IBOutlet fileprivate var albumLabel: NSTextField!
+	@IBOutlet fileprivate var albumView: NSImageView!
 
 	@IBAction func refresh(_ sender: AnyObject) {
 		
-		refreshCurrentSong()
+		guard let delegate = NSApp.delegate as? AppDelegate else {
+			return
+		}
+		
+		delegate.refresh()
 	}
 	
 	override func viewDidLoad() {
@@ -42,50 +41,47 @@ class InfoViewController: NSViewController {
 		
 		progressIndicator.frame = albumView.bounds
 	}
+}
+
+extension InfoViewController: SongChangeDelegate {
 	
-	func refreshCurrentSong() {
+	func songDidChange(_ song: Song) {
 		
-		api?.currentSong { song in
+		self.nameLabel.stringValue = song.name
+		self.albumLabel.stringValue = song.album.name
+		
+		if let artist = song.artists.first {
+			self.artistLabel.stringValue = artist.name
+		}
+		
+		// Replace image with an empty clear image of
+		// the same size to avoid resizing while loading the new one
+		if let image = self.albumView.image {
 			
-			guard let song = song else {
-				return
-			}
+			let clearImage = NSImage(size: image.size)
+			clearImage.backgroundColor = .clear
+			self.albumView.image = clearImage
+		}
+		
+		self.progressIndicator.startAnimation(self)
+		
+		self.api?.image(for: song.album.imageURL) { image in
 			
-			self.currentSong = song
+			sleep(3)
 			
-			self.nameLabel.stringValue = song.name
-			self.albumLabel.stringValue = song.album.name
-			
-			if let artist = song.artists.first {
-				self.artistLabel.stringValue = artist.name
-			}
-			
-			// Replace image with an empty clear image of
-			// the same size to avoid resizing while loading the new one
-			if let image = self.albumView.image {
-				let clearImage = NSImage(size: image.size)
-				clearImage.backgroundColor = .clear
-				self.albumView.image = clearImage
-			}
-			
-			self.progressIndicator.startAnimation(self)
-			
-			self.api?.image(for: song.album.imageURL) { image in
-				sleep(3)
-				DispatchQueue.main.async {
-					
-					self.progressIndicator.stopAnimation(self)
-					
-					guard
-						let imageData = image,
-						let image = NSImage(data: imageData) else {
-							return
-					}
-					
-					self.albumView.image = image
+			DispatchQueue.main.async {
+				
+				self.progressIndicator.stopAnimation(self)
+				
+				guard
+					let imageData = image,
+					let image = NSImage(data: imageData) else {
+						return
 				}
+				
+				self.albumView.image = image
 			}
 		}
+	
 	}
-
 }

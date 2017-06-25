@@ -10,14 +10,9 @@ import Cocoa
 
 class TraitsViewController: NSViewController {
 	
-	var api: SpotifyAPI? {
-		didSet {
-			refreshCurrentSong()
-		}
-	}
+	var api: SpotifyAPI?
 	
-	@IBOutlet var traitsTableView: NSTableView!
-	private var currentSong: Song?
+	@IBOutlet fileprivate var traitsTableView: NSTableView!
 	fileprivate var traits: [(String, String)]?
 	
 	override func viewDidLoad() {
@@ -29,33 +24,11 @@ class TraitsViewController: NSViewController {
 	
 	@IBAction func refresh(_ sender: AnyObject) {
 		
-		refreshCurrentSong()
-	}
-	
-	func refreshCurrentSong() {
-		
-		api?.currentSong { song in
-			
-			guard let song = song else {
-				return
-			}
-			
-			self.currentSong = song
-			self.showTraits(for: song)
+		guard let delegate = NSApp.delegate as? AppDelegate else {
+			return
 		}
-	}
 	
-	private func showTraits(for song: Song) {
-		
-		api?.features(forSong: song) { features in
-			
-			guard let features = features else {
-				return
-			}
-			
-			self.traits = features.formattedValues()
-			self.traitsTableView.reloadData()
-		}
+		delegate.refresh()
 	}
 }
 
@@ -91,5 +64,21 @@ extension TraitsViewController: NSTableViewDelegate {
 		}
 		
 		return nil
+	}
+}
+
+extension TraitsViewController: SongChangeDelegate {
+	
+	func songDidChange(_ song: Song) {
+		
+		api?.features(forSong: song) { features in
+			
+			guard let features = features else {
+				return
+			}
+			
+			self.traits = features.formattedValues()
+			self.traitsTableView.reloadData()
+		}
 	}
 }

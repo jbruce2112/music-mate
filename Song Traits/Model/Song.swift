@@ -32,3 +32,10 @@ struct Song {
 		self.artists = Artist.createArray(fromJSONArray: artistsJSON)
 	}
 }
+
+extension Song: Equatable {
+	
+	static func == (lhs: Song, rhs: Song) -> Bool {
+		return lhs.id == rhs.id
+	}
+}

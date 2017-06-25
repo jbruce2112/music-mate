@@ -8,6 +8,10 @@
 
 import Foundation
 
+protocol SongChangeDelegate: class {
+	func songDidChange(_ song: Song)
+}
+
 class SpotifyAPI {
 	
 	private let clientID: String
@@ -19,7 +23,11 @@ class SpotifyAPI {
 	private let authorizer: Authorizer
 	private let session = URLSession(configuration: .default)
 	
-	init() {
+	private var lastSong: Song?
+	
+	weak var delegate: SongChangeDelegate?
+	
+	init(_ delegate: SongChangeDelegate?) {
 		
 		let idURL = Bundle.main.url(forResource: ".client-id", withExtension: nil)!
 		let secretURL = Bundle.main.url(forResource: ".client-secret", withExtension: nil)!
@@ -28,6 +36,8 @@ class SpotifyAPI {
 		clientSecret = try! String(contentsOf: secretURL).trimmingCharacters(in: .whitespacesAndNewlines)
 		
 		authorizer = Authorizer()
+		
+		self.delegate = delegate
 	}
 	
 	func auth(completion: @escaping () -> Void) {
@@ -61,7 +71,6 @@ class SpotifyAPI {
 		request(forMethod: "v1/me/player/devices") { responseData in
 			
 			DispatchQueue.main.async {
-				
 				
 				guard
 					let data = responseData,
@@ -132,7 +141,7 @@ class SpotifyAPI {
 		}
 	}
 	
-	func currentSong(completion: @escaping (Song?) -> Void) {
+	func currentSong(completion: ((Song?) -> Void)?) {
 		
 		request(forMethod: "v1/me/player/currently-playing") { responseData in
 			
@@ -144,10 +153,19 @@ class SpotifyAPI {
 					let jsonDictionary = jsonObject as? [AnyHashable: Any],
 					let itemJSON = jsonDictionary["item"] as? [String: Any] else {
 						
-						return completion(nil)
+						completion?(nil)
+						return
 				}
 				
-				completion(Song(fromJSON: itemJSON))
+				guard let current = Song(fromJSON: itemJSON) else {
+					return
+				}
+				
+				completion?(current)
+				
+				if self.lastSong == nil || current != self.lastSong! {
+					self.delegate?.songDidChange(current)
+				}
 			}
 		}
 	}

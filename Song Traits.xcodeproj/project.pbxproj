@@ -21,6 +21,7 @@
 		52184FF91E913FF000DFEB49 /* SpotifyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52184FF81E913FF000DFEB49 /* SpotifyAPI.swift */; };
 		527E3C7A1E9143BE00AE05AB /* .client-id in Resources */ = {isa = PBXBuildFile; fileRef = 527E3C781E9143BE00AE05AB /* .client-id */; };
 		527E3C7B1E9143BE00AE05AB /* .client-secret in Resources */ = {isa = PBXBuildFile; fileRef = 527E3C791E9143BE00AE05AB /* .client-secret */; };
+		52E4291F1F00198800B85D3F /* MenuBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E4291E1F00198800B85D3F /* MenuBarManager.swift */; };
 		AFC18DA077A4568309F56495 /* Pods_Song_Traits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280546BCCAD3E72476596F05 /* Pods_Song_Traits.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		52184FF81E913FF000DFEB49 /* SpotifyAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifyAPI.swift; sourceTree = "<group>"; };
 		527E3C781E9143BE00AE05AB /* .client-id */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".client-id"; sourceTree = "<group>"; };
 		527E3C791E9143BE00AE05AB /* .client-secret */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".client-secret"; sourceTree = "<group>"; };
+		52E4291E1F00198800B85D3F /* MenuBarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuBarManager.swift; path = Model/MenuBarManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				52184FE91E913D9D00DFEB49 /* AppDelegate.swift */,
+				52E4291E1F00198800B85D3F /* MenuBarManager.swift */,
 				52184FED1E913D9D00DFEB49 /* Assets.xcassets */,
 				52184FEF1E913D9D00DFEB49 /* Main.storyboard */,
 				52184FF21E913D9D00DFEB49 /* Info.plist */,
@@ -285,6 +288,7 @@
 				52184FF91E913FF000DFEB49 /* SpotifyAPI.swift in Sources */,
 				52000CB51E916B0800AB4A6C /* AuthState.swift in Sources */,
 				52184FEC1E913D9D00DFEB49 /* InfoViewController.swift in Sources */,
+				52E4291F1F00198800B85D3F /* MenuBarManager.swift in Sources */,
 				52184FEA1E913D9D00DFEB49 /* AppDelegate.swift in Sources */,
 				52000CB91E919D5C00AB4A6C /* Artist.swift in Sources */,
 				52000CBB1E919DA600AB4A6C /* Album.swift in Sources */,

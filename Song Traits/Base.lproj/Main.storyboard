@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12120"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
@@ -660,7 +660,7 @@
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Song_Traits" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="0.0"/>
+            <point key="canvasLocation" x="76" y="-20"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -669,7 +669,7 @@
                     <window key="window" title="Song Traits" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="contentRect" x="196" y="240" width="600" height="390"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                     </window>
                     <connections>
@@ -701,8 +701,8 @@
                             <stackView distribution="fillEqually" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9cx-IR-4N0" userLabel="Container Stack View">
                                 <rect key="frame" x="20" y="61" width="560" height="70"/>
                                 <subviews>
-                                    <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="251" verticalStackHuggingPriority="249.99998474121094" horizontalHuggingPriority="251" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="74Y-ab-Z6z" userLabel="Metadata Stack View">
-                                        <rect key="frame" x="0.0" y="1.5" width="502" height="67"/>
+                                    <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="251" verticalStackHuggingPriority="249.99998474121094" horizontalHuggingPriority="251" verticalHuggingPriority="251" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="74Y-ab-Z6z" userLabel="Metadata Stack View">
+                                        <rect key="frame" x="0.0" y="2" width="502" height="67"/>
                                         <subviews>
                                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aik-cf-NEz" userLabel="Name Stack View">
                                                 <rect key="frame" x="0.0" y="50" width="250" height="17"/>
@@ -825,7 +825,7 @@
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
                                     </stackView>
-                                    <imageView horizontalHuggingPriority="750" verticalHuggingPriority="751" horizontalCompressionResistancePriority="249" verticalCompressionResistancePriority="250" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="NbZ-jm-AV2">
+                                    <imageView horizontalHuggingPriority="751" verticalHuggingPriority="751" horizontalCompressionResistancePriority="249" verticalCompressionResistancePriority="249" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="NbZ-jm-AV2">
                                         <rect key="frame" x="510" y="10" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="NbZ-jm-AV2" secondAttribute="height" multiplier="1:1" id="tRn-Ra-JyQ"/>
@@ -865,7 +865,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="759" y="670.5"/>
+            <point key="canvasLocation" x="928" y="797"/>
         </scene>
         <!--Tab View Controller-->
         <scene sceneID="jvh-FG-e20">
@@ -876,7 +876,7 @@
                         <tabViewItem label="Info" id="uOV-5a-DjZ"/>
                     </tabViewItems>
                     <tabView key="tabView" misplaced="YES" type="noTabsNoBorder" id="nMt-zz-Ek2">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="390"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="390"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <font key="font" metaFont="message"/>
                         <tabViewItems/>
@@ -888,7 +888,7 @@
                 </tabViewController>
                 <customObject id="wJI-wl-HXl" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="90" y="744"/>
+            <point key="canvasLocation" x="75" y="797"/>
         </scene>
         <!--Traits View Controller-->
         <scene sceneID="SUb-Nu-Ta1">
@@ -908,7 +908,7 @@
                                     <action selector="refresh:" target="hpD-hM-pb0" id="W57-Uc-4Bh"/>
                                 </connections>
                             </button>
-                            <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GNE-3s-kqx">
+                            <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GNE-3s-kqx" userLabel="Table View">
                                 <rect key="frame" x="100" y="61" width="400" height="309"/>
                                 <clipView key="contentView" id="fo7-be-IMG">
                                     <rect key="frame" x="1" y="0.0" width="398" height="308"/>
@@ -1020,7 +1020,7 @@
                 </viewController>
                 <customObject id="0Po-2W-H9Q" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="710.5" y="1191.5"/>
+            <point key="canvasLocation" x="947" y="1430"/>
         </scene>
     </scenes>
 </document>
