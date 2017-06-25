@@ -21,15 +21,6 @@ class TraitsViewController: NSViewController {
 		traitsTableView.delegate = self
 		traitsTableView.dataSource = self
 	}
-	
-	@IBAction func refresh(_ sender: AnyObject) {
-		
-		guard let delegate = NSApp.delegate as? AppDelegate else {
-			return
-		}
-	
-		delegate.refresh()
-	}
 }
 
 extension TraitsViewController: NSTableViewDataSource {

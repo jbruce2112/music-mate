@@ -18,15 +18,6 @@ class InfoViewController: NSViewController {
 	@IBOutlet fileprivate var artistLabel: NSTextField!
 	@IBOutlet fileprivate var albumLabel: NSTextField!
 	@IBOutlet fileprivate var albumView: NSImageView!
-
-	@IBAction func refresh(_ sender: AnyObject) {
-		
-		guard let delegate = NSApp.delegate as? AppDelegate else {
-			return
-		}
-		
-		delegate.refresh()
-	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()

@@ -684,31 +684,21 @@
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController title="Info View Controller" id="XfG-lQ-9wD" customClass="InfoViewController" customModule="Song_Traits" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" wantsLayer="YES" misplaced="YES" id="m2S-Jp-Qdl">
+                    <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="390"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ND6-oR-cg6">
-                                <rect key="frame" x="256" y="13" width="87" height="32"/>
-                                <buttonCell key="cell" type="push" title="Refresh" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nIY-qo-DPh">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="refresh:" target="XfG-lQ-9wD" id="qk2-tI-hoo"/>
-                                </connections>
-                            </button>
                             <stackView distribution="fillEqually" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9cx-IR-4N0" userLabel="Container Stack View">
-                                <rect key="frame" x="20" y="61" width="560" height="70"/>
+                                <rect key="frame" x="20" y="20" width="560" height="350"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="251" verticalStackHuggingPriority="249.99998474121094" horizontalHuggingPriority="251" verticalHuggingPriority="251" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="74Y-ab-Z6z" userLabel="Metadata Stack View">
-                                        <rect key="frame" x="0.0" y="2" width="502" height="67"/>
+                                        <rect key="frame" x="0.0" y="142" width="222" height="67"/>
                                         <subviews>
                                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aik-cf-NEz" userLabel="Name Stack View">
-                                                <rect key="frame" x="0.0" y="50" width="250" height="17"/>
+                                                <rect key="frame" x="0.0" y="50" width="222" height="17"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Pn-Ch-e90" userLabel="Name Label">
-                                                        <rect key="frame" x="-2" y="0.0" width="47" height="17"/>
+                                                        <rect key="frame" x="-2" y="0.0" width="44" height="17"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Name:" id="uOb-to-Lvv">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -716,7 +706,7 @@
                                                         </textFieldCell>
                                                     </textField>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="749" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RS0-GL-RyO" userLabel="Name Value">
-                                                        <rect key="frame" x="49" y="0.0" width="203" height="17"/>
+                                                        <rect key="frame" x="46" y="0.0" width="178" height="17"/>
                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" placeholderString="none" id="Moi-dQ-2AF">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -739,10 +729,10 @@
                                                 </customSpacing>
                                             </stackView>
                                             <stackView distribution="fill" orientation="horizontal" alignment="bottom" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CiQ-PY-izT" userLabel="Artist Stack View">
-                                                <rect key="frame" x="0.0" y="25" width="250" height="17"/>
+                                                <rect key="frame" x="0.0" y="25" width="222" height="17"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nca-BI-ktG" userLabel="Artist:">
-                                                        <rect key="frame" x="-2" y="0.0" width="47" height="17"/>
+                                                        <rect key="frame" x="-2" y="0.0" width="44" height="17"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Artist:" id="nZ4-4L-nit" userLabel="Arist:">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -750,7 +740,7 @@
                                                         </textFieldCell>
                                                     </textField>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="749" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awc-SA-wG0" userLabel="Artist value">
-                                                        <rect key="frame" x="49" y="0.0" width="203" height="17"/>
+                                                        <rect key="frame" x="46" y="0.0" width="178" height="17"/>
                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" placeholderString="none" id="mhM-eR-u9Z">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -760,7 +750,8 @@
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="17" id="5KQ-kQ-Drh"/>
-                                                    <constraint firstAttribute="width" constant="250" id="aaE-4B-PRs"/>
+                                                    <constraint firstAttribute="trailing" secondItem="awc-SA-wG0" secondAttribute="trailing" id="fo1-Wv-1GO"/>
+                                                    <constraint firstItem="awc-SA-wG0" firstAttribute="leading" secondItem="Nca-BI-ktG" secondAttribute="trailing" constant="8" id="srh-I1-DpZ"/>
                                                 </constraints>
                                                 <visibilityPriorities>
                                                     <integer value="1000"/>
@@ -772,7 +763,7 @@
                                                 </customSpacing>
                                             </stackView>
                                             <stackView distribution="fill" orientation="horizontal" alignment="bottom" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e7m-eT-9qP" userLabel="Album Stack View">
-                                                <rect key="frame" x="0.0" y="0.0" width="250" height="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="222" height="17"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aic-1X-XGG" userLabel="Album:">
                                                         <rect key="frame" x="-2" y="0.0" width="47" height="17"/>
@@ -783,7 +774,7 @@
                                                         </textFieldCell>
                                                     </textField>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="749" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4W-Eh-B72" userLabel="Album value">
-                                                        <rect key="frame" x="49" y="0.0" width="203" height="17"/>
+                                                        <rect key="frame" x="49" y="0.0" width="175" height="17"/>
                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" placeholderString="none" id="eDk-IG-n9r">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -792,8 +783,9 @@
                                                     </textField>
                                                 </subviews>
                                                 <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="A4W-Eh-B72" secondAttribute="trailing" id="Ig9-vX-0M3"/>
                                                     <constraint firstAttribute="height" constant="17" id="bda-3T-uQZ"/>
-                                                    <constraint firstAttribute="width" constant="250" id="sxe-5h-4uz"/>
+                                                    <constraint firstItem="A4W-Eh-B72" firstAttribute="leading" secondItem="aic-1X-XGG" secondAttribute="trailing" constant="8" id="ceb-da-d2a"/>
                                                 </constraints>
                                                 <visibilityPriorities>
                                                     <integer value="1000"/>
@@ -809,8 +801,6 @@
                                             <constraint firstItem="CiQ-PY-izT" firstAttribute="top" secondItem="aik-cf-NEz" secondAttribute="bottom" constant="8" id="7eS-Ww-If9"/>
                                             <constraint firstItem="Nca-BI-ktG" firstAttribute="trailing" secondItem="0Pn-Ch-e90" secondAttribute="trailing" id="NLD-jx-aIz"/>
                                             <constraint firstItem="aik-cf-NEz" firstAttribute="top" secondItem="74Y-ab-Z6z" secondAttribute="top" id="PMv-qu-qq6"/>
-                                            <constraint firstItem="e7m-eT-9qP" firstAttribute="top" secondItem="CiQ-PY-izT" secondAttribute="bottom" constant="8" id="Vkg-XF-jNm"/>
-                                            <constraint firstItem="aic-1X-XGG" firstAttribute="trailing" secondItem="0Pn-Ch-e90" secondAttribute="trailing" id="Y81-Zn-hdt"/>
                                             <constraint firstItem="aik-cf-NEz" firstAttribute="width" secondItem="CiQ-PY-izT" secondAttribute="width" id="gw0-Mc-KUY"/>
                                             <constraint firstItem="0Pn-Ch-e90" firstAttribute="trailing" secondItem="Nca-BI-ktG" secondAttribute="trailing" id="vcg-M0-cwA"/>
                                         </constraints>
@@ -825,8 +815,8 @@
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
                                     </stackView>
-                                    <imageView horizontalHuggingPriority="751" verticalHuggingPriority="751" horizontalCompressionResistancePriority="249" verticalCompressionResistancePriority="249" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="NbZ-jm-AV2">
-                                        <rect key="frame" x="510" y="10" width="50" height="50"/>
+                                    <imageView horizontalCompressionResistancePriority="249" verticalCompressionResistancePriority="249" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="NbZ-jm-AV2">
+                                        <rect key="frame" x="230" y="10" width="330" height="330"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="NbZ-jm-AV2" secondAttribute="height" multiplier="1:1" id="tRn-Ra-JyQ"/>
                                         </constraints>
@@ -850,10 +840,8 @@
                         <constraints>
                             <constraint firstItem="9cx-IR-4N0" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="656-2H-fbv"/>
                             <constraint firstAttribute="trailing" secondItem="9cx-IR-4N0" secondAttribute="trailing" constant="20" id="Ij1-7h-pPo"/>
-                            <constraint firstAttribute="bottom" secondItem="ND6-oR-cg6" secondAttribute="bottom" constant="20" id="Y06-sI-jLr"/>
+                            <constraint firstAttribute="bottom" secondItem="9cx-IR-4N0" secondAttribute="bottom" constant="20" id="ODi-pu-YrC"/>
                             <constraint firstItem="9cx-IR-4N0" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="gfz-H2-euG"/>
-                            <constraint firstItem="ND6-oR-cg6" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="o0V-kU-118"/>
-                            <constraint firstItem="ND6-oR-cg6" firstAttribute="top" secondItem="9cx-IR-4N0" secondAttribute="bottom" constant="20" id="uDl-HV-pGH"/>
                         </constraints>
                     </view>
                     <connections>
@@ -870,15 +858,15 @@
         <!--Tab View Controller-->
         <scene sceneID="jvh-FG-e20">
             <objects>
-                <tabViewController selectedTabViewItemIndex="0" id="9vd-tz-E4L" sceneMemberID="viewController">
+                <tabViewController selectedTabViewItemIndex="1" id="9vd-tz-E4L" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem label="Traits" id="SKW-60-zT9"/>
                         <tabViewItem label="Info" id="uOV-5a-DjZ"/>
                     </tabViewItems>
-                    <tabView key="tabView" misplaced="YES" type="noTabsNoBorder" id="nMt-zz-Ek2">
+                    <tabView key="tabView" misplaced="YES" drawsBackground="NO" type="noTabsNoBorder" id="nMt-zz-Ek2">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="390"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <font key="font" metaFont="message"/>
+                        <font key="font" metaFont="system"/>
                         <tabViewItems/>
                     </tabView>
                     <connections>
@@ -895,27 +883,17 @@
             <objects>
                 <viewController title="Traits View Controller" id="hpD-hM-pb0" customClass="TraitsViewController" customModule="Song_Traits" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="KcF-Lz-raT">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="390"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4x6-0N-Bsc">
-                                <rect key="frame" x="257" y="13" width="87" height="32"/>
-                                <buttonCell key="cell" type="push" title="Refresh" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="F5C-P3-5xr">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="refresh:" target="hpD-hM-pb0" id="W57-Uc-4Bh"/>
-                                </connections>
-                            </button>
                             <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GNE-3s-kqx" userLabel="Table View">
-                                <rect key="frame" x="100" y="61" width="400" height="309"/>
+                                <rect key="frame" x="100" y="20" width="400" height="260"/>
                                 <clipView key="contentView" id="fo7-be-IMG">
-                                    <rect key="frame" x="1" y="0.0" width="398" height="308"/>
+                                    <rect key="frame" x="1" y="0.0" width="398" height="259"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="onV-6m-DKh" viewBased="YES" id="DFc-dD-5qg">
-                                            <rect key="frame" x="0.0" y="0.0" width="398" height="285"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="398" height="236"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1006,11 +984,9 @@
                             </scrollView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="4x6-0N-Bsc" firstAttribute="top" secondItem="GNE-3s-kqx" secondAttribute="bottom" constant="20" id="93C-nq-Jhn"/>
+                            <constraint firstAttribute="bottom" secondItem="GNE-3s-kqx" secondAttribute="bottom" constant="20" id="7pJ-NV-1bI"/>
                             <constraint firstItem="GNE-3s-kqx" firstAttribute="leading" secondItem="KcF-Lz-raT" secondAttribute="leading" constant="100" id="EaV-2g-Qkz"/>
-                            <constraint firstItem="4x6-0N-Bsc" firstAttribute="centerX" secondItem="KcF-Lz-raT" secondAttribute="centerX" id="F8u-yG-04t"/>
                             <constraint firstAttribute="trailing" secondItem="GNE-3s-kqx" secondAttribute="trailing" constant="100" id="apQ-7W-dSx"/>
-                            <constraint firstAttribute="bottom" secondItem="4x6-0N-Bsc" secondAttribute="bottom" constant="20" id="qhv-u4-nwI"/>
                             <constraint firstItem="GNE-3s-kqx" firstAttribute="top" secondItem="KcF-Lz-raT" secondAttribute="top" constant="20" id="wsq-Ov-pa6"/>
                         </constraints>
                     </view>
