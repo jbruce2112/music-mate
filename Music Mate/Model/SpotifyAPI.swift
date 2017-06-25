@@ -1,6 +1,6 @@
 //
 //  SpotifyAPI.swift
-//  Song Traits
+//  Music Mate
 //
 //  Created by John on 4/2/17.
 //  Copyright © 2017 Bruce32. All rights reserved.
@@ -15,27 +15,22 @@ protocol SongChangeDelegate: class {
 class SpotifyAPI {
 	
 	private let clientID: String
-	private let clientSecret: String
 	
 	private let apiBaseURL = URL(string: "https://api.spotify.com")!
 	
 	private var authState: AuthState?
-	private let authorizer: Authorizer
+	private let authorizer = Authorizer()
 	private let session = URLSession(configuration: .default)
 	
-	private var lastSong: Song?
+	private var currentSong: Song?
 	
-	weak var delegate: SongChangeDelegate?
+	private weak var delegate: SongChangeDelegate?
 	
 	init(_ delegate: SongChangeDelegate?) {
 		
+		// Store the clientID outside of the project and source for development
 		let idURL = Bundle.main.url(forResource: ".client-id", withExtension: nil)!
-		let secretURL = Bundle.main.url(forResource: ".client-secret", withExtension: nil)!
-		
 		clientID = try! String(contentsOf: idURL).trimmingCharacters(in: .whitespacesAndNewlines)
-		clientSecret = try! String(contentsOf: secretURL).trimmingCharacters(in: .whitespacesAndNewlines)
-		
-		authorizer = Authorizer()
 		
 		self.delegate = delegate
 	}
@@ -47,7 +42,6 @@ class SpotifyAPI {
 			switch result {
 			case let .success(state):
 				self.authState = state
-				print("Successfully logged in")
 				completion()
 			case let .failure(error):
 				print("Error logging in \(error)")
@@ -157,14 +151,15 @@ class SpotifyAPI {
 						return
 				}
 				
-				guard let current = Song(fromJSON: itemJSON) else {
+				guard let fetched = Song(fromJSON: itemJSON) else {
 					return
 				}
 				
-				completion?(current)
+				completion?(fetched)
 				
-				if self.lastSong == nil || current != self.lastSong! {
-					self.delegate?.songDidChange(current)
+				if self.currentSong == nil || fetched != self.currentSong! {
+					self.currentSong = fetched
+					self.delegate?.songDidChange(fetched)
 				}
 			}
 		}

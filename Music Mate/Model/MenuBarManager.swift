@@ -1,6 +1,6 @@
 //
 //  MenuBarManager.swift
-//  Song Traits
+//  Music Mate
 //
 //  Created by John on 6/25/17.
 //  Copyright © 2017 Bruce32. All rights reserved.
@@ -11,7 +11,6 @@ import Cocoa
 class MenuBarManager {
 	
 	var api: SpotifyAPI?
-	var features: Features?
 	
 	fileprivate let statusItem: NSStatusItem
 	
@@ -27,6 +26,8 @@ class MenuBarManager {
 			basicMenu.addItem(item)
 		}
 		
+		basicMenu.addItem(NSMenuItem.separator())
+		
 		for item in footerItems() {
 			basicMenu.addItem(item)
 		}
@@ -37,28 +38,37 @@ class MenuBarManager {
 	fileprivate func headerItems() -> [NSMenuItem] {
 		
 		var items = [NSMenuItem]()
-		
-		let refreshItem = NSMenuItem(title: "Refresh", action: #selector(refresh), keyEquivalent: "")
-		refreshItem.target = self
-		items.append(refreshItem)
-		
-		let showWindowItem = NSMenuItem(title: "Show Window", action: #selector(showWindow), keyEquivalent: "")
+				
+		let showWindowItem = NSMenuItem(title: "Show", action: #selector(show), keyEquivalent: "")
 		showWindowItem.target = self
 		items.append(showWindowItem)
+		
+		let refreshItem = NSMenuItem(title: "Refresh", action: #selector(refresh), keyEquivalent: "r")
+		refreshItem.target = self
+		items.append(refreshItem)
 		
 		return items
 	}
 	
 	fileprivate func footerItems() -> [NSMenuItem] {
 		
-		let quitItem = NSMenuItem(title: "Quit", action: #selector(quit), keyEquivalent: "")
-		quitItem.target = self
+		var items = [NSMenuItem]()
 		
-		return [quitItem]
+		let prefItem = NSMenuItem(title: "Preferences", action: #selector(showPref), keyEquivalent: ",")
+		prefItem.target = self
+		items.append(prefItem)
+		
+		items.append(NSMenuItem.separator())
+		
+		let quitItem = NSMenuItem(title: "Quit", action: #selector(quit), keyEquivalent: "q")
+		quitItem.target = self
+		items.append(quitItem)
+		
+		return items
 	}
 	
 	@objc
-	fileprivate func refresh() {
+	private func refresh() {
 		
 		guard let delegate = NSApp.delegate as? AppDelegate else {
 			return
@@ -68,17 +78,27 @@ class MenuBarManager {
 	}
 	
 	@objc
-	fileprivate func showWindow() {
+	private func show() {
 		
 		guard let delegate = NSApp.delegate as? AppDelegate else {
 			return
 		}
 		
-		delegate.showWindow()
+		delegate.showInfoWindow()
 	}
 	
 	@objc
-	fileprivate func quit() {
+	private func showPref() {
+		
+		guard let delegate = NSApp.delegate as? AppDelegate else {
+			return
+		}
+		
+		delegate.showPrefWindow()
+	}
+	
+	@objc
+	private func quit() {
 		
 		NSApp.terminate(self)
 	}
@@ -100,8 +120,6 @@ extension MenuBarManager: SongChangeDelegate {
 		newMenu.addItem(withTitle: song.artists.first?.name ?? "", action: nil, keyEquivalent: "")
 		newMenu.addItem(withTitle: song.album.name, action: nil, keyEquivalent: "")
 		
-		newMenu.addItem(NSMenuItem.separator())
-		
 		let featuresMenu = NSMenu()
 		
 		let featuresMenuItem = NSMenuItem(title: "Features", action: nil, keyEquivalent: "")
@@ -120,6 +138,8 @@ extension MenuBarManager: SongChangeDelegate {
 				featuresMenu.addItem(withTitle: "\(name) : \(value)", action: nil, keyEquivalent: "")
 			}
 		}
+		
+		newMenu.addItem(NSMenuItem.separator())
 		
 		for item in footerItems() {
 			newMenu.addItem(item)

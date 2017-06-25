@@ -1,6 +1,6 @@
 //
 //  TraitsViewController.swift
-//  Song Traits
+//  Music Mate
 //
 //  Created by John on 4/9/17.
 //  Copyright © 2017 Bruce32. All rights reserved.
@@ -8,34 +8,34 @@
 
 import Cocoa
 
-class TraitsViewController: NSViewController {
+class FeaturesViewController: NSViewController {
 	
 	var api: SpotifyAPI?
 	
-	@IBOutlet fileprivate var traitsTableView: NSTableView!
-	fileprivate var traits: [(String, String)]?
+	@IBOutlet fileprivate var tableView: NSTableView!
+	fileprivate var features: [(String, String)]?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		traitsTableView.delegate = self
-		traitsTableView.dataSource = self
+		tableView.delegate = self
+		tableView.dataSource = self
 	}
 }
 
-extension TraitsViewController: NSTableViewDataSource {
+extension FeaturesViewController: NSTableViewDataSource {
 	
 	func numberOfRows(in tableView: NSTableView) -> Int {
 		
-		return traits?.count ?? 0
+		return features?.count ?? 0
 	}
 }
 
-extension TraitsViewController: NSTableViewDelegate {
+extension FeaturesViewController: NSTableViewDelegate {
 	
 	func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
 		
-		guard let traits = traits else {
+		guard let features = features else {
 			return nil
 		}
 		
@@ -43,10 +43,10 @@ extension TraitsViewController: NSTableViewDelegate {
 		var text: String
 		if tableColumn == tableView.tableColumns[0] {
 			id = "KeyID"
-			text = traits[row].0
+			text = features[row].0
 		} else {
 			id = "ValueID"
-			text = traits[row].1
+			text = features[row].1
 		}
 		
 		if let cell = tableView.make(withIdentifier: id, owner: nil) as? NSTableCellView {
@@ -58,7 +58,7 @@ extension TraitsViewController: NSTableViewDelegate {
 	}
 }
 
-extension TraitsViewController: SongChangeDelegate {
+extension FeaturesViewController: SongChangeDelegate {
 	
 	func songDidChange(_ song: Song) {
 		
@@ -68,8 +68,8 @@ extension TraitsViewController: SongChangeDelegate {
 				return
 			}
 			
-			self.traits = features.formattedValues()
-			self.traitsTableView.reloadData()
+			self.features = features.formattedValues()
+			self.tableView.reloadData()
 		}
 	}
 }

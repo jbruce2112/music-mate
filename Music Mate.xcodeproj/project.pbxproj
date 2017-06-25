@@ -7,45 +7,79 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4926EECE44F5A98CFD293B59 /* Pods_Music_Mate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE181E5D32637CF2D272976E /* Pods_Music_Mate.framework */; };
 		52000CB31E916A5F00AB4A6C /* Authorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52000CB21E916A5F00AB4A6C /* Authorizer.swift */; };
 		52000CB51E916B0800AB4A6C /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52000CB41E916B0800AB4A6C /* AuthState.swift */; };
 		52000CB71E918AF400AB4A6C /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52000CB61E918AF400AB4A6C /* Song.swift */; };
 		52000CB91E919D5C00AB4A6C /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52000CB81E919D5C00AB4A6C /* Artist.swift */; };
 		52000CBB1E919DA600AB4A6C /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52000CBA1E919DA600AB4A6C /* Album.swift */; };
 		52000CBF1E91ADBF00AB4A6C /* Features.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52000CBE1E91ADBF00AB4A6C /* Features.swift */; };
-		5202C9281E9ABAED0015475B /* TraitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5202C9271E9ABAED0015475B /* TraitsViewController.swift */; };
+		5202C9281E9ABAED0015475B /* FeaturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5202C9271E9ABAED0015475B /* FeaturesViewController.swift */; };
 		52184FEA1E913D9D00DFEB49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52184FE91E913D9D00DFEB49 /* AppDelegate.swift */; };
 		52184FEC1E913D9D00DFEB49 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52184FEB1E913D9D00DFEB49 /* InfoViewController.swift */; };
 		52184FEE1E913D9D00DFEB49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52184FED1E913D9D00DFEB49 /* Assets.xcassets */; };
 		52184FF11E913D9D00DFEB49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52184FEF1E913D9D00DFEB49 /* Main.storyboard */; };
 		52184FF91E913FF000DFEB49 /* SpotifyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52184FF81E913FF000DFEB49 /* SpotifyAPI.swift */; };
-		527E3C7A1E9143BE00AE05AB /* .client-id in Resources */ = {isa = PBXBuildFile; fileRef = 527E3C781E9143BE00AE05AB /* .client-id */; };
-		527E3C7B1E9143BE00AE05AB /* .client-secret in Resources */ = {isa = PBXBuildFile; fileRef = 527E3C791E9143BE00AE05AB /* .client-secret */; };
+		52ADA9A51F00807E000E7004 /* .client-id in Resources */ = {isa = PBXBuildFile; fileRef = 52ADA9A41F00807E000E7004 /* .client-id */; };
 		52E4291F1F00198800B85D3F /* MenuBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E4291E1F00198800B85D3F /* MenuBarManager.swift */; };
-		AFC18DA077A4568309F56495 /* Pods_Song_Traits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280546BCCAD3E72476596F05 /* Pods_Song_Traits.framework */; };
+		52E429211F004BEE00B85D3F /* PrefViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E429201F004BEE00B85D3F /* PrefViewController.swift */; };
+		52E429291F005DD700B85D3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E429281F005DD700B85D3F /* AppDelegate.swift */; };
+		52E4292D1F005DD700B85D3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52E4292C1F005DD700B85D3F /* Assets.xcassets */; };
+		52E429301F005DD700B85D3F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52E4292E1F005DD700B85D3F /* Main.storyboard */; };
+		52E429381F005F4900B85D3F /* Music Mate Helper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 52E429261F005DD700B85D3F /* Music Mate Helper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AFC18DA077A4568309F56495 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
+/* Begin PBXBuildRule section */
+		52E429361F005EBD00B85D3F /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = pattern.proxy;
+			isEditable = 1;
+			outputFiles = (
+			);
+		};
+/* End PBXBuildRule section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		52E429371F005F3000B85D3F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				52E429381F005F4900B85D3F /* Music Mate Helper.app in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		0B08B056B5D3FF27F3726D38 /* Pods-Song Traits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Song Traits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Song Traits/Pods-Song Traits.debug.xcconfig"; sourceTree = "<group>"; };
-		26B5BAD33EBF28184986C7B5 /* Pods-Song Traits.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Song Traits.release.xcconfig"; path = "Pods/Target Support Files/Pods-Song Traits/Pods-Song Traits.release.xcconfig"; sourceTree = "<group>"; };
-		280546BCCAD3E72476596F05 /* Pods_Song_Traits.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Song_Traits.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		48A2F4A186F649A1CED9EBF3 /* Pods-Music Mate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Music Mate.release.xcconfig"; path = "Pods/Target Support Files/Pods-Music Mate/Pods-Music Mate.release.xcconfig"; sourceTree = "<group>"; };
 		52000CB21E916A5F00AB4A6C /* Authorizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authorizer.swift; sourceTree = "<group>"; };
 		52000CB41E916B0800AB4A6C /* AuthState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
 		52000CB61E918AF400AB4A6C /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		52000CB81E919D5C00AB4A6C /* Artist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		52000CBA1E919DA600AB4A6C /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		52000CBE1E91ADBF00AB4A6C /* Features.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Features.swift; sourceTree = "<group>"; };
-		5202C9271E9ABAED0015475B /* TraitsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TraitsViewController.swift; path = Controllers/TraitsViewController.swift; sourceTree = "<group>"; };
-		52184FE61E913D9D00DFEB49 /* Song Traits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Song Traits.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5202C9271E9ABAED0015475B /* FeaturesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeaturesViewController.swift; path = Controllers/FeaturesViewController.swift; sourceTree = "<group>"; };
+		52184FE61E913D9D00DFEB49 /* Music Mate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Music Mate.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52184FE91E913D9D00DFEB49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52184FEB1E913D9D00DFEB49 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InfoViewController.swift; path = Controllers/InfoViewController.swift; sourceTree = "<group>"; };
 		52184FED1E913D9D00DFEB49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52184FF01E913D9D00DFEB49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		52184FF21E913D9D00DFEB49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52184FF81E913FF000DFEB49 /* SpotifyAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifyAPI.swift; sourceTree = "<group>"; };
-		527E3C781E9143BE00AE05AB /* .client-id */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".client-id"; sourceTree = "<group>"; };
-		527E3C791E9143BE00AE05AB /* .client-secret */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".client-secret"; sourceTree = "<group>"; };
+		52ADA9A41F00807E000E7004 /* .client-id */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".client-id"; sourceTree = "<group>"; };
 		52E4291E1F00198800B85D3F /* MenuBarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuBarManager.swift; path = Model/MenuBarManager.swift; sourceTree = "<group>"; };
+		52E429201F004BEE00B85D3F /* PrefViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefViewController.swift; sourceTree = "<group>"; };
+		52E429261F005DD700B85D3F /* Music Mate Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Music Mate Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52E429281F005DD700B85D3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		52E4292C1F005DD700B85D3F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		52E4292F1F005DD700B85D3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		52E429311F005DD700B85D3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A13B3C4AEEB4236E1DFD218F /* Pods-Music Mate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Music Mate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Music Mate/Pods-Music Mate.debug.xcconfig"; sourceTree = "<group>"; };
+		BE181E5D32637CF2D272976E /* Pods_Music_Mate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Music_Mate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +87,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFC18DA077A4568309F56495 /* Pods_Song_Traits.framework in Frameworks */,
+				AFC18DA077A4568309F56495 /* (null) in Frameworks */,
+				4926EECE44F5A98CFD293B59 /* Pods_Music_Mate.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52E429231F005DD700B85D3F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,7 +105,7 @@
 		311E2BE2FE1450B573CDDA98 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				280546BCCAD3E72476596F05 /* Pods_Song_Traits.framework */,
+				BE181E5D32637CF2D272976E /* Pods_Music_Mate.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -71,7 +113,8 @@
 		52184FDD1E913D9D00DFEB49 = {
 			isa = PBXGroup;
 			children = (
-				52184FE81E913D9D00DFEB49 /* Song Traits */,
+				52184FE81E913D9D00DFEB49 /* Music Mate */,
+				52E429271F005DD700B85D3F /* Music Mate Helper */,
 				52184FE71E913D9D00DFEB49 /* Products */,
 				66D3E462D1BB54101F8A4CC7 /* Pods */,
 				311E2BE2FE1450B573CDDA98 /* Frameworks */,
@@ -81,19 +124,20 @@
 		52184FE71E913D9D00DFEB49 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				52184FE61E913D9D00DFEB49 /* Song Traits.app */,
+				52184FE61E913D9D00DFEB49 /* Music Mate.app */,
+				52E429261F005DD700B85D3F /* Music Mate Helper.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		52184FE81E913D9D00DFEB49 /* Song Traits */ = {
+		52184FE81E913D9D00DFEB49 /* Music Mate */ = {
 			isa = PBXGroup;
 			children = (
 				527CB0E41E91BCFA0030C314 /* Controllers */,
 				527CB0E31E91BCD90030C314 /* Model */,
 				527CB0E51E91BD140030C314 /* Supporting Files */,
 			);
-			path = "Song Traits";
+			path = "Music Mate";
 			sourceTree = "<group>";
 		};
 		527CB0E31E91BCD90030C314 /* Model */ = {
@@ -114,7 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				52184FEB1E913D9D00DFEB49 /* InfoViewController.swift */,
-				5202C9271E9ABAED0015475B /* TraitsViewController.swift */,
+				5202C9271E9ABAED0015475B /* FeaturesViewController.swift */,
+				52E429201F004BEE00B85D3F /* PrefViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -127,17 +172,27 @@
 				52184FED1E913D9D00DFEB49 /* Assets.xcassets */,
 				52184FEF1E913D9D00DFEB49 /* Main.storyboard */,
 				52184FF21E913D9D00DFEB49 /* Info.plist */,
-				527E3C781E9143BE00AE05AB /* .client-id */,
-				527E3C791E9143BE00AE05AB /* .client-secret */,
+				52ADA9A41F00807E000E7004 /* .client-id */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		52E429271F005DD700B85D3F /* Music Mate Helper */ = {
+			isa = PBXGroup;
+			children = (
+				52E429281F005DD700B85D3F /* AppDelegate.swift */,
+				52E4292C1F005DD700B85D3F /* Assets.xcassets */,
+				52E4292E1F005DD700B85D3F /* Main.storyboard */,
+				52E429311F005DD700B85D3F /* Info.plist */,
+			);
+			path = "Music Mate Helper";
 			sourceTree = "<group>";
 		};
 		66D3E462D1BB54101F8A4CC7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0B08B056B5D3FF27F3726D38 /* Pods-Song Traits.debug.xcconfig */,
-				26B5BAD33EBF28184986C7B5 /* Pods-Song Traits.release.xcconfig */,
+				A13B3C4AEEB4236E1DFD218F /* Pods-Music Mate.debug.xcconfig */,
+				48A2F4A186F649A1CED9EBF3 /* Pods-Music Mate.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -145,9 +200,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		52184FE51E913D9D00DFEB49 /* Song Traits */ = {
+		52184FE51E913D9D00DFEB49 /* Music Mate */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 52184FF51E913D9D00DFEB49 /* Build configuration list for PBXNativeTarget "Song Traits" */;
+			buildConfigurationList = 52184FF51E913D9D00DFEB49 /* Build configuration list for PBXNativeTarget "Music Mate" */;
 			buildPhases = (
 				330D8B69E7304A3B170E8C2C /* [CP] Check Pods Manifest.lock */,
 				52184FE21E913D9D00DFEB49 /* Sources */,
@@ -156,14 +211,33 @@
 				7F80564787406C4D604A9466 /* [CP] Embed Pods Frameworks */,
 				8CFE8359DE338A648D2DF603 /* [CP] Copy Pods Resources */,
 				528AE6AE1E91C08500EDE8F3 /* ShellScript */,
+				52E429371F005F3000B85D3F /* CopyFiles */,
+			);
+			buildRules = (
+				52E429361F005EBD00B85D3F /* PBXBuildRule */,
+			);
+			dependencies = (
+			);
+			name = "Music Mate";
+			productName = "Music Mate";
+			productReference = 52184FE61E913D9D00DFEB49 /* Music Mate.app */;
+			productType = "com.apple.product-type.application";
+		};
+		52E429251F005DD700B85D3F /* Music Mate Helper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52E429321F005DD700B85D3F /* Build configuration list for PBXNativeTarget "Music Mate Helper" */;
+			buildPhases = (
+				52E429221F005DD700B85D3F /* Sources */,
+				52E429231F005DD700B85D3F /* Frameworks */,
+				52E429241F005DD700B85D3F /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Song Traits";
-			productName = "Song Traits";
-			productReference = 52184FE61E913D9D00DFEB49 /* Song Traits.app */;
+			name = "Music Mate Helper";
+			productName = "Music Mate Helper";
+			productReference = 52E429261F005DD700B85D3F /* Music Mate Helper.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -181,9 +255,14 @@
 						DevelopmentTeam = UVXX33WP85;
 						ProvisioningStyle = Automatic;
 					};
+					52E429251F005DD700B85D3F = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = UVXX33WP85;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
-			buildConfigurationList = 52184FE11E913D9D00DFEB49 /* Build configuration list for PBXProject "Song Traits" */;
+			buildConfigurationList = 52184FE11E913D9D00DFEB49 /* Build configuration list for PBXProject "Music Mate" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -196,7 +275,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				52184FE51E913D9D00DFEB49 /* Song Traits */,
+				52184FE51E913D9D00DFEB49 /* Music Mate */,
+				52E429251F005DD700B85D3F /* Music Mate Helper */,
 			);
 		};
 /* End PBXProject section */
@@ -208,8 +288,16 @@
 			files = (
 				52184FEE1E913D9D00DFEB49 /* Assets.xcassets in Resources */,
 				52184FF11E913D9D00DFEB49 /* Main.storyboard in Resources */,
-				527E3C7B1E9143BE00AE05AB /* .client-secret in Resources */,
-				527E3C7A1E9143BE00AE05AB /* .client-id in Resources */,
+				52ADA9A51F00807E000E7004 /* .client-id in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52E429241F005DD700B85D3F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52E4292D1F005DD700B85D3F /* Assets.xcassets in Resources */,
+				52E429301F005DD700B85D3F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,7 +344,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Song Traits/Pods-Song Traits-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Music Mate/Pods-Music Mate-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8CFE8359DE338A648D2DF603 /* [CP] Copy Pods Resources */ = {
@@ -271,7 +359,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Song Traits/Pods-Song Traits-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Music Mate/Pods-Music Mate-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -284,7 +372,7 @@
 				52000CBF1E91ADBF00AB4A6C /* Features.swift in Sources */,
 				52000CB71E918AF400AB4A6C /* Song.swift in Sources */,
 				52000CB31E916A5F00AB4A6C /* Authorizer.swift in Sources */,
-				5202C9281E9ABAED0015475B /* TraitsViewController.swift in Sources */,
+				5202C9281E9ABAED0015475B /* FeaturesViewController.swift in Sources */,
 				52184FF91E913FF000DFEB49 /* SpotifyAPI.swift in Sources */,
 				52000CB51E916B0800AB4A6C /* AuthState.swift in Sources */,
 				52184FEC1E913D9D00DFEB49 /* InfoViewController.swift in Sources */,
@@ -292,6 +380,15 @@
 				52184FEA1E913D9D00DFEB49 /* AppDelegate.swift in Sources */,
 				52000CB91E919D5C00AB4A6C /* Artist.swift in Sources */,
 				52000CBB1E919DA600AB4A6C /* Album.swift in Sources */,
+				52E429211F004BEE00B85D3F /* PrefViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52E429221F005DD700B85D3F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52E429291F005DD700B85D3F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +399,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				52184FF01E913D9D00DFEB49 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		52E4292E1F005DD700B85D3F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52E4292F1F005DD700B85D3F /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -403,14 +508,14 @@
 		};
 		52184FF61E913D9D00DFEB49 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0B08B056B5D3FF27F3726D38 /* Pods-Song Traits.debug.xcconfig */;
+			baseConfigurationReference = A13B3C4AEEB4236E1DFD218F /* Pods-Music Mate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = UVXX33WP85;
-				INFOPLIST_FILE = "Song Traits/Info.plist";
+				INFOPLIST_FILE = "Music Mate/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bruce32.Song-Traits";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bruce32.MusicMate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -418,15 +523,45 @@
 		};
 		52184FF71E913D9D00DFEB49 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 26B5BAD33EBF28184986C7B5 /* Pods-Song Traits.release.xcconfig */;
+			baseConfigurationReference = 48A2F4A186F649A1CED9EBF3 /* Pods-Music Mate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = UVXX33WP85;
-				INFOPLIST_FILE = "Song Traits/Info.plist";
+				INFOPLIST_FILE = "Music Mate/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bruce32.Song-Traits";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bruce32.MusicMate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		52E429331F005DD700B85D3F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = UVXX33WP85;
+				INFOPLIST_FILE = "Music Mate Helper/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bruce32.MusicMateHelper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		52E429341F005DD700B85D3F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = UVXX33WP85;
+				INFOPLIST_FILE = "Music Mate Helper/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bruce32.MusicMateHelper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -434,7 +569,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		52184FE11E913D9D00DFEB49 /* Build configuration list for PBXProject "Song Traits" */ = {
+		52184FE11E913D9D00DFEB49 /* Build configuration list for PBXProject "Music Mate" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				52184FF31E913D9D00DFEB49 /* Debug */,
@@ -443,11 +578,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		52184FF51E913D9D00DFEB49 /* Build configuration list for PBXNativeTarget "Song Traits" */ = {
+		52184FF51E913D9D00DFEB49 /* Build configuration list for PBXNativeTarget "Music Mate" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				52184FF61E913D9D00DFEB49 /* Debug */,
 				52184FF71E913D9D00DFEB49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52E429321F005DD700B85D3F /* Build configuration list for PBXNativeTarget "Music Mate Helper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52E429331F005DD700B85D3F /* Debug */,
+				52E429341F005DD700B85D3F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

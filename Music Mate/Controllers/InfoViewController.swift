@@ -1,6 +1,6 @@
 //
 //  InfoViewController.swift
-//  Song Traits
+//  Music Mate
 //
 //  Created by John on 4/2/17.
 //  Copyright © 2017 Bruce32. All rights reserved.
@@ -57,9 +57,7 @@ extension InfoViewController: SongChangeDelegate {
 		self.progressIndicator.startAnimation(self)
 		
 		self.api?.image(for: song.album.imageURL) { image in
-			
-			sleep(3)
-			
+						
 			DispatchQueue.main.async {
 				
 				self.progressIndicator.stopAnimation(self)

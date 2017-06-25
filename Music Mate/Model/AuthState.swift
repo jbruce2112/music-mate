@@ -1,6 +1,6 @@
 //
 //  AuthState.swift
-//  Song Traits
+//  Music Mate
 //
 //  Created by John on 4/2/17.
 //  Copyright © 2017 Bruce32. All rights reserved.

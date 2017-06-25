@@ -1,6 +1,6 @@
 //
 //  Authorizer.swift
-//  Song Traits
+//  Music Mate
 //
 //  Created by John on 4/2/17.
 //  Copyright © 2017 Bruce32. All rights reserved.
@@ -54,7 +54,7 @@ class Authorizer {
 				case let .success(state):
 					
 					completion(.success(state))
-					return .ok(.html("Successfully logged in"))
+					return .ok(.html("Successfully logged in. You may close this window."))
 				case let .failure(error):
 					
 					completion(.failure(error))
