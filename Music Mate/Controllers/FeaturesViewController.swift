@@ -1,5 +1,5 @@
 //
-//  TraitsViewController.swift
+//  FeaturesViewController.swift
 //  Music Mate
 //
 //  Created by John on 4/9/17.
