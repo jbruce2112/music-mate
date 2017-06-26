@@ -5,8 +5,8 @@ from your currently playing song on Spotify.
 
 <table border="0">
   <tr>
-    <td><img src="screenshots/menu.png" /></td>
-    <td><img src="screenshots/window.png" /></td>
+    <td><img src="docs/screenshots/menu.png" /></td>
+    <td><img src="docs/screenshots/window.png" /></td>
   </tr>
 </table>
 
