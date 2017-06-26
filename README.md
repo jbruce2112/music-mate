@@ -3,7 +3,7 @@
 Music Mate is a macOS menu bar application for fetching [features](https://developer.spotify.com/web-api/get-audio-features/)
 from your currently playing song on Spotify.
 
-Menu Bar UI | Application Window
+Menu Bar | Application Window
 :----------:|:------------------:
 ![Menu Bar Image](screenshots/menu.png "Music Mate Menu Bar Image") | ![Window Image](screenshots/window.png "Music Mate Window Image")
 
