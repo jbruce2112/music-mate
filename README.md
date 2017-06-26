@@ -5,7 +5,7 @@ from your currently playing song on Spotify.
 
 Menu Bar UI | Application Window
 :----------:|:------------------:
-![Menu Bar Image](menu.png "Music Mate Menu Bar Image") | ![Window Image](window.png "Music Mate Window Image")
+![Menu Bar Image](screenshots/menu.png "Music Mate Menu Bar Image") | ![Window Image](screenshots/window.png "Music Mate Window Image")
 
 
 <sub>Note: The app uses your browser to authenticate with Spotify on startup. This is due to the deprecation of 
