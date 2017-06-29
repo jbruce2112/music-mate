@@ -12,6 +12,13 @@ protocol SongChangeDelegate: class {
 	func songDidChange(_ song: Song)
 }
 
+/// The SpotifyAPI class encapsulates all
+/// network communication from the other components.
+/// It maintains a login state, provides a number of
+/// endpoint calls to get information about what music
+/// is playing and what device it is playing on.
+/// Users of this class can optionally instantiate it
+/// with a delegate to be notified of song change events.
 class SpotifyAPI {
 	
 	// MARK: Properties
@@ -27,7 +34,7 @@ class SpotifyAPI {
 	
 	private weak var delegate: SongChangeDelegate?
 	
-	init(_ delegate: SongChangeDelegate?) {
+	init(_ delegate: SongChangeDelegate? = nil) {
 		
 		// Store the clientID outside of the project and source for development
 		let idURL = Bundle.main.url(forResource: ".client-id", withExtension: nil)!
