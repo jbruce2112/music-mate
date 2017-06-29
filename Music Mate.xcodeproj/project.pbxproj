@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4926EECE44F5A98CFD293B59 /* Pods_Music_Mate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE181E5D32637CF2D272976E /* Pods_Music_Mate.framework */; };
-		52000CB31E916A5F00AB4A6C /* Authorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52000CB21E916A5F00AB4A6C /* Authorizer.swift */; };
+		52000CB31E916A5F00AB4A6C /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52000CB21E916A5F00AB4A6C /* Authenticator.swift */; };
 		52000CB51E916B0800AB4A6C /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52000CB41E916B0800AB4A6C /* AuthState.swift */; };
 		52000CB71E918AF400AB4A6C /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52000CB61E918AF400AB4A6C /* Song.swift */; };
 		52000CB91E919D5C00AB4A6C /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52000CB81E919D5C00AB4A6C /* Artist.swift */; };
@@ -56,7 +56,7 @@
 
 /* Begin PBXFileReference section */
 		48A2F4A186F649A1CED9EBF3 /* Pods-Music Mate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Music Mate.release.xcconfig"; path = "Pods/Target Support Files/Pods-Music Mate/Pods-Music Mate.release.xcconfig"; sourceTree = "<group>"; };
-		52000CB21E916A5F00AB4A6C /* Authorizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authorizer.swift; sourceTree = "<group>"; };
+		52000CB21E916A5F00AB4A6C /* Authenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		52000CB41E916B0800AB4A6C /* AuthState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
 		52000CB61E918AF400AB4A6C /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		52000CB81E919D5C00AB4A6C /* Artist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 			children = (
 				52000CBA1E919DA600AB4A6C /* Album.swift */,
 				52000CB81E919D5C00AB4A6C /* Artist.swift */,
-				52000CB21E916A5F00AB4A6C /* Authorizer.swift */,
+				52000CB21E916A5F00AB4A6C /* Authenticator.swift */,
 				52000CB41E916B0800AB4A6C /* AuthState.swift */,
 				52000CBE1E91ADBF00AB4A6C /* Features.swift */,
 				52000CB61E918AF400AB4A6C /* Song.swift */,
@@ -371,7 +371,7 @@
 			files = (
 				52000CBF1E91ADBF00AB4A6C /* Features.swift in Sources */,
 				52000CB71E918AF400AB4A6C /* Song.swift in Sources */,
-				52000CB31E916A5F00AB4A6C /* Authorizer.swift in Sources */,
+				52000CB31E916A5F00AB4A6C /* Authenticator.swift in Sources */,
 				5202C9281E9ABAED0015475B /* FeaturesViewController.swift in Sources */,
 				52184FF91E913FF000DFEB49 /* SpotifyAPI.swift in Sources */,
 				52000CB51E916B0800AB4A6C /* AuthState.swift in Sources */,

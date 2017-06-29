@@ -8,11 +8,16 @@
 
 import Cocoa
 
+/// MenuBarManager is responsible for creating
+/// the NSMenu, its subitems, and keeping them up
+/// to date when the current song changes.
 class MenuBarManager {
 	
-	var api: SpotifyAPI?
-	
+	// MARK: Properties
+	weak var api: SpotifyAPI?
 	fileprivate let statusItem: NSStatusItem
+	
+	private weak var appDelegate = NSApp.delegate as? AppDelegate
 	
 	init() {
 		
@@ -22,19 +27,17 @@ class MenuBarManager {
 		
 		let basicMenu = NSMenu()
 		
-		for item in headerItems() {
-			basicMenu.addItem(item)
-		}
+		// Create the initial menu (vanilla header and footer)
+		headerItems().forEach { basicMenu.addItem($0) }
 		
 		basicMenu.addItem(NSMenuItem.separator())
 		
-		for item in footerItems() {
-			basicMenu.addItem(item)
-		}
+		footerItems().forEach { basicMenu.addItem($0) }
 		
 		statusItem.menu = basicMenu
 	}
 	
+	// MARK: Standard menu header/footer
 	fileprivate func headerItems() -> [NSMenuItem] {
 		
 		var items = [NSMenuItem]()
@@ -67,34 +70,23 @@ class MenuBarManager {
 		return items
 	}
 	
+	// MARK: Selectors triggered by menu actions
 	@objc
 	private func refresh() {
 		
-		guard let delegate = NSApp.delegate as? AppDelegate else {
-			return
-		}
-		
-		delegate.refresh()
+		api?.refreshCurrentSong()
 	}
 	
 	@objc
 	private func show() {
 		
-		guard let delegate = NSApp.delegate as? AppDelegate else {
-			return
-		}
-		
-		delegate.showInfoWindow()
+		appDelegate?.showInfoWindow()
 	}
 	
 	@objc
 	private func showPref() {
 		
-		guard let delegate = NSApp.delegate as? AppDelegate else {
-			return
-		}
-		
-		delegate.showPrefWindow()
+		appDelegate?.showPrefWindow()
 	}
 	
 	@objc
@@ -104,6 +96,8 @@ class MenuBarManager {
 	}
 }
 
+
+// MARK: SongChangeDelegate conformance
 extension MenuBarManager: SongChangeDelegate {
 	
 	func songDidChange(_ song: Song) {

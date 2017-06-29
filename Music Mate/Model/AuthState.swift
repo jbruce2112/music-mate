@@ -8,6 +8,8 @@
 
 import Foundation
 
+/// AuthState is the result of a successful
+/// login attempt, and represents a valid login duration
 struct AuthState {
 	
 	let token: String

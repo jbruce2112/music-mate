@@ -11,7 +11,7 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 	
-	private var api: SpotifyAPI?
+	private var api: SpotifyAPI!
 	private var window: NSWindow!
 	
 	private let infoTabIndex = 0
@@ -22,22 +22,25 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	
 	fileprivate var infoViewController: InfoViewController!
 	fileprivate var featuresViewController: FeaturesViewController!
-	private var prefViewController: PrefViewController!
+	fileprivate var prefViewController: PrefViewController!
 	
-	fileprivate var menuBarManager = MenuBarManager()
-
+	fileprivate var menuBarManager: MenuBarManager!
+	
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 		
-		window = NSApp.windows[1]
+		// Render the menu right away
+		menuBarManager = MenuBarManager()
+		
+		api = SpotifyAPI(self)
+		
+		window = NSApp.windows[0]
 		
 		tabViewController = window.contentViewController as! NSTabViewController
 		infoViewController = tabViewController.tabViewItems[infoTabIndex].viewController as! InfoViewController
 		featuresViewController = tabViewController.tabViewItems[featuresTabIndex].viewController as! FeaturesViewController
 		prefViewController = tabViewController.tabViewItems[prefTabIndex].viewController as! PrefViewController
 		
-		api = SpotifyAPI(self)
-		
-		api?.auth {
+		api.auth {
 			
 			self.featuresViewController.api = self.api
 			self.infoViewController.api = self.api
@@ -53,12 +56,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		window.orderOut(self)
 	}
 	
+	// MARK: Window display functions
 	func showInfoWindow() {
+		
+		// Make sure we have the latest song
+		refresh()
 		
 		showWindow()
 		tabViewController.selectedTabViewItemIndex = infoTabIndex
-		
-		refresh()
 	}
 	
 	func showPrefWindow() {
@@ -67,9 +72,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		tabViewController.selectedTabViewItemIndex = prefTabIndex
 	}
 	
-	func refresh() {
+	private func refresh() {
 		
-		api?.currentSong(completion: nil)
+		api.refreshCurrentSong()
 	}
 	
 	private func showWindow() {
@@ -80,6 +85,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	
 }
 
+// MARK: SongChangeDelegate conformance
 extension AppDelegate: SongChangeDelegate {
 	
 	func songDidChange(_ song: Song) {

@@ -16,16 +16,16 @@ enum Mode: Int {
 
 enum Key: Int {
 	case C
-	case CSharp
+	case C_Sharp
 	case D
-	case DSharp
+	case D_Sharp
 	case E
 	case F
-	case FSharp
+	case F_Sharp
 	case G
-	case GSharp
+	case G_Sharp
 	case A
-	case ASharp
+	case A_Sharp
 	case B
 	case Unknown
 }

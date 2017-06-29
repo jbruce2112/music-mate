@@ -1,5 +1,5 @@
 //
-//  Authorizer.swift
+//  Authenticator.swift
 //  Music Mate
 //
 //  Created by John on 4/2/17.
@@ -14,8 +14,19 @@ enum AuthResult {
 	case failure(String)
 }
 
-class Authorizer {
+/// The Authenticator class handles
+/// the login flow with Spotify's endpoint.
+///
+/// The underlying work is currently done
+/// using a lightweight HTTP server (Swifter)
+/// and uses Spotify's web API along with the
+/// user's browser for logging in.
+/// This can be improved and updated once
+/// Spotify releases a native desktop SDK.
+/// https://developer.spotify.com/technologies/libspotify/
+class Authenticator {
 	
+	// MARK: Properties
 	private let accountsBaseURL = URL(string: "https://accounts.spotify.com")!
 	
 	private let server: HttpServer
@@ -33,6 +44,7 @@ class Authorizer {
 		try! server.start(port)
 	}
 	
+	// MARK: Function
 	func auth(forClient clientID: String, completion: @escaping (AuthResult) -> Void) {
 		
 		let params = [
@@ -68,7 +80,7 @@ class Authorizer {
 		NSWorkspace.shared().open(url)
 	}
 	
-	
+	// MARK: Private functions
 	private func authURL(method: String, params: [String: String]?) -> URL {
 		
 		return SpotifyAPI.url(base: accountsBaseURL, method: method, params: params)
@@ -77,6 +89,11 @@ class Authorizer {
 	private func getRedirectHTML(_ request: HttpRequest) -> String? {
 		
 		if request.queryParams.isEmpty {
+			
+			// Spotify gives us back the login state as a URL fragment.
+			// Since this is only readable with client-side javascript,
+			// we redirect the client to the same page but with the params
+			// as part of the query string so we can parse them on this end
 			return "<script> function passParams() { " +
 				"window.location = \"http://localhost:\(port)/\(callbackMethod)?\"" +
 				" + window.location.hash.substr(1); } window.onload = passParams</script>"

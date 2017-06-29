@@ -10,7 +10,7 @@ import Cocoa
 
 class FeaturesViewController: NSViewController {
 	
-	var api: SpotifyAPI?
+	weak var api: SpotifyAPI?
 	
 	@IBOutlet fileprivate var tableView: NSTableView!
 	fileprivate var features: [(String, String)]?
@@ -23,6 +23,7 @@ class FeaturesViewController: NSViewController {
 	}
 }
 
+/// MARK: NSTableViewDataSource
 extension FeaturesViewController: NSTableViewDataSource {
 	
 	func numberOfRows(in tableView: NSTableView) -> Int {
@@ -31,6 +32,7 @@ extension FeaturesViewController: NSTableViewDataSource {
 	}
 }
 
+/// MARK: NSTableViewDelegate
 extension FeaturesViewController: NSTableViewDelegate {
 	
 	func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
@@ -58,6 +60,7 @@ extension FeaturesViewController: NSTableViewDelegate {
 	}
 }
 
+/// MARK: SongChangeDelegate
 extension FeaturesViewController: SongChangeDelegate {
 	
 	func songDidChange(_ song: Song) {

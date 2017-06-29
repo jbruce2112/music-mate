@@ -14,12 +14,13 @@ protocol SongChangeDelegate: class {
 
 class SpotifyAPI {
 	
+	// MARK: Properties
 	private let clientID: String
 	
 	private let apiBaseURL = URL(string: "https://api.spotify.com")!
 	
 	private var authState: AuthState?
-	private let authorizer = Authorizer()
+	private let authenticator = Authenticator()
 	private let session = URLSession(configuration: .default)
 	
 	private var currentSong: Song?
@@ -37,7 +38,7 @@ class SpotifyAPI {
 	
 	func auth(completion: @escaping () -> Void) {
 		
-		authorizer.auth(forClient: clientID) { result in
+		authenticator.auth(forClient: clientID) { result in
 			
 			switch result {
 			case let .success(state):
@@ -50,6 +51,7 @@ class SpotifyAPI {
 		}
 	}
 	
+	// MARK: Spotify API functions
 	func image(for url: URL, completion: @escaping (Data?) -> Void) {
 		
 		let request = URLRequest(url: url)
@@ -135,7 +137,7 @@ class SpotifyAPI {
 		}
 	}
 	
-	func currentSong(completion: ((Song?) -> Void)?) {
+	func refreshCurrentSong(completion: ((Song?) -> Void)? = nil) {
 		
 		request(forMethod: "v1/me/player/currently-playing") { responseData in
 			

@@ -10,7 +10,7 @@ import Cocoa
 
 class InfoViewController: NSViewController {
 
-	var api: SpotifyAPI?
+	weak var api: SpotifyAPI?
 	
 	fileprivate let progressIndicator = NSProgressIndicator()
 	
@@ -34,6 +34,7 @@ class InfoViewController: NSViewController {
 	}
 }
 
+/// MARK: SongChangeDelegate
 extension InfoViewController: SongChangeDelegate {
 	
 	func songDidChange(_ song: Song) {
