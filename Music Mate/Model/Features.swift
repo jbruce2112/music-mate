@@ -30,6 +30,30 @@ enum Key: Int {
 	case Unknown
 }
 
+extension Key: CustomStringConvertible {
+	
+	var description: String {
+		
+		switch self {
+			
+		case .C: return "C"
+		case .C_Sharp: return "C#"
+		case .D: return "D"
+		case .D_Sharp: return "D#"
+		case .E: return "E"
+		case .F: return "F"
+		case .F_Sharp: return "F#"
+		case .G: return "G"
+		case .G_Sharp: return "G#"
+		case .A: return "A"
+		case .A_Sharp: return "A#"
+		case .B: return "B"
+		default: return "Unknown"
+			
+		}
+	}
+}
+
 class Features {
 	
 	let acousticness: Float
@@ -92,7 +116,7 @@ class Features {
 		values.append(("Mode", String(describing: mode)))
 		values.append(("Speechiness", formatPercent(speechiness)))
 		values.append(("Tempo", "\(Int(tempo)) BPM"))
-		values.append(("TimeSignature", String(describing: timeSignature)))
+		values.append(("Time Signature", String(describing: timeSignature)))
 		values.append(("Valence", formatPercent(valence)))
 		
 		return values
