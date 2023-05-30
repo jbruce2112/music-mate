@@ -20,11 +20,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	
 	private var tabViewController: NSTabViewController!
 	
-	fileprivate var infoViewController: InfoViewController!
-	fileprivate var featuresViewController: FeaturesViewController!
-	fileprivate var prefViewController: PrefViewController!
+	private var infoViewController: InfoViewController!
+    private var featuresViewController: FeaturesViewController!
+    private var prefViewController: PrefViewController!
 	
-	fileprivate var menuBarManager: MenuBarManager!
+    private var menuBarManager: MenuBarManager!
 	
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 		
@@ -35,10 +35,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		
 		window = NSApp.windows[0]
 		
-		tabViewController = window.contentViewController as! NSTabViewController
-		infoViewController = tabViewController.tabViewItems[infoTabIndex].viewController as! InfoViewController
-		featuresViewController = tabViewController.tabViewItems[featuresTabIndex].viewController as! FeaturesViewController
-		prefViewController = tabViewController.tabViewItems[prefTabIndex].viewController as! PrefViewController
+        tabViewController = window.contentViewController as? NSTabViewController
+        infoViewController = tabViewController.tabViewItems[infoTabIndex].viewController as? InfoViewController
+        featuresViewController = tabViewController.tabViewItems[featuresTabIndex].viewController as? FeaturesViewController
+        prefViewController = tabViewController.tabViewItems[prefTabIndex].viewController as? PrefViewController
 		
 		api.auth {
 			

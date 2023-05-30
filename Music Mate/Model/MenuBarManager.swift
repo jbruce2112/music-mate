@@ -21,7 +21,7 @@ class MenuBarManager {
 	
 	init() {
 		
-		statusItem = NSStatusBar.system().statusItem(withLength: NSSquareStatusItemLength)
+        statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
 		statusItem.image = #imageLiteral(resourceName: "MenuIcon")
 		statusItem.image?.isTemplate = true
 		

@@ -51,7 +51,7 @@ extension FeaturesViewController: NSTableViewDelegate {
 			text = features[row].1
 		}
 		
-		if let cell = tableView.make(withIdentifier: id, owner: nil) as? NSTableCellView {
+        if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: id) , owner: nil) as? NSTableCellView {
 			cell.textField?.stringValue = text
 			return cell
 		}

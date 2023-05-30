@@ -8,8 +8,12 @@
 
 import Foundation
 
-protocol SongChangeDelegate: class {
+protocol SongChangeDelegate: AnyObject {
 	func songDidChange(_ song: Song)
+}
+
+enum ErrorCode: Int {
+	case Auth = 401
 }
 
 /// The SpotifyAPI class encapsulates all
@@ -192,6 +196,33 @@ class SpotifyAPI {
 	
 	// MARK: Private functions
 	private func request(forMethod method: String, params: [String: String]? = nil, completion: @escaping (Data?) -> Void) {
+		
+		requestInternal(forMethod: method, params: params) { responseData in
+			
+			guard
+				let data = responseData,
+				let jsonObject = try? JSONSerialization.jsonObject(with: data),
+				let jsonDictionary = jsonObject as? [AnyHashable: Any],
+				let error = jsonDictionary["error"] as? [String: Any] else {
+					
+					completion(responseData)
+					return
+			}
+			
+			let status = String(describing: error["status"])
+			if Int(status) == ErrorCode.Auth.rawValue {
+				
+				// attempt to re-auth
+				self.auth {
+					
+					// try the request once more
+					self.requestInternal(forMethod: method, params: params, completion: completion)
+				}
+			}
+		}
+	}
+	
+	private func requestInternal(forMethod method: String, params: [String: String]?, completion: @escaping (Data?) -> Void) {
 		
 		guard
 			let token = authState?.token,

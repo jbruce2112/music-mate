@@ -77,7 +77,7 @@ class Authenticator {
 		
 		let url = authURL(method: "authorize", params: params)
 		
-		NSWorkspace.shared().open(url)
+        NSWorkspace.shared.open(url)
 	}
 	
 	// MARK: Private functions

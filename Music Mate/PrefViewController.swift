@@ -19,13 +19,13 @@ class PrefViewController: NSViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		loginButton.state = defaults.bool(forKey: StartAtLoginKey) ? NSOnState : NSOffState
+        loginButton.state = defaults.bool(forKey: StartAtLoginKey) ? NSControl.StateValue.on : NSControl.StateValue.off
 	}
 	
 	@IBAction func startOnLoginPressed(sender: NSButton) {
 	
 		let helperID = "com.bruce32.MusicMateHelper"
-		let enabled = sender.state == NSOnState
+		let enabled = sender.state == NSControl.StateValue.on
 		
 		if SMLoginItemSetEnabled(helperID as CFString, enabled) {
 			defaults.set(enabled, forKey: StartAtLoginKey)

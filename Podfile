@@ -8,5 +8,5 @@ target 'Music Mate' do
 	inhibit_all_warnings!
 
 	# Pods for Music Mate
-	pod 'Swifter', '~> 1.3.3'
+	pod 'Swifter', '~> 1.5.0'
 end

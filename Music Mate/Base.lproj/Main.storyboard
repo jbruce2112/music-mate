@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -656,7 +657,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Song_Traits" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Music_Mate" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="76" y="-20"/>
@@ -682,7 +683,7 @@
         <!--Pref View Controller-->
         <scene sceneID="wz9-FK-Xl7">
             <objects>
-                <viewController storyboardIdentifier="PrefViewController" id="sC0-Ep-Pu0" customClass="PrefViewController" customModule="Song_Traits" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PrefViewController" id="sC0-Ep-Pu0" customClass="PrefViewController" customModule="Music_Mate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="sRL-hq-g9s">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="250"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -714,7 +715,7 @@
         <!--Info View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController title="Info View Controller" id="XfG-lQ-9wD" customClass="InfoViewController" customModule="Song_Traits" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Info View Controller" id="XfG-lQ-9wD" customClass="InfoViewController" customModule="Music_Mate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="390"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -723,7 +724,7 @@
                                 <rect key="frame" x="20" y="20" width="560" height="350"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="251" verticalStackHuggingPriority="249.99998474121094" horizontalHuggingPriority="251" verticalHuggingPriority="251" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="74Y-ab-Z6z" userLabel="Metadata Stack View">
-                                        <rect key="frame" x="0.0" y="142" width="222" height="67"/>
+                                        <rect key="frame" x="0.0" y="141.5" width="222" height="67"/>
                                         <subviews>
                                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aik-cf-NEz" userLabel="Name Stack View">
                                                 <rect key="frame" x="0.0" y="50" width="222" height="17"/>
@@ -914,7 +915,7 @@
         <!--Features View Controller-->
         <scene sceneID="SUb-Nu-Ta1">
             <objects>
-                <viewController title="Features View Controller" id="hpD-hM-pb0" customClass="FeaturesViewController" customModule="Song_Traits" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Features View Controller" id="hpD-hM-pb0" customClass="FeaturesViewController" customModule="Music_Mate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="KcF-Lz-raT">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="390"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -923,7 +924,7 @@
                                 <rect key="frame" x="100" y="20" width="400" height="350"/>
                                 <clipView key="contentView" id="fo7-be-IMG">
                                     <rect key="frame" x="1" y="0.0" width="398" height="349"/>
-                                    <autoresizingMask key="autoresizingMask"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="onV-6m-DKh" viewBased="YES" id="DFc-dD-5qg">
                                             <rect key="frame" x="0.0" y="0.0" width="398" height="326"/>

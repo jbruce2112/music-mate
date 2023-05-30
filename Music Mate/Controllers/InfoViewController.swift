@@ -23,7 +23,7 @@ class InfoViewController: NSViewController {
 		super.viewDidLoad()
 		
 		progressIndicator.isDisplayedWhenStopped = false
-		progressIndicator.style = .spinningStyle
+        progressIndicator.style = .spinning
 		albumView.addSubview(progressIndicator)
 	}
 	

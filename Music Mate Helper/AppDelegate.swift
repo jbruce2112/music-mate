@@ -22,7 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		}
 		
 		let mainAppPath = NSString.path(withComponents: helperPath)
-		NSWorkspace.shared().launchApplication(mainAppPath)
+        NSWorkspace.shared.launchApplication(mainAppPath)
 		
 		NSApp.terminate(self)
 	}
